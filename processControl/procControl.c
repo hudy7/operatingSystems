@@ -30,12 +30,20 @@ void printPid(){
   char hostname[128];
   gethostname(hostname, sizeof hostname);
 
-  printf("Process id:    %d  \n", (int)getpid());
-  printf("Parent process id:    %d  \n", (int)getppid());
+  time_t currentTime;
+  time(&currentTime);
 
-  printf("Host name:    %s  \n", hostname);
-  printf("User name:    %s  \n", cuserid(NULL));
-  printf("Time of day:  %d  \n", ctime(NULL));
+  char cwd[1024];
+  
+
+  printf("Process id:    %d  \n", (int)getpid());
+  printf("Parent  id:    %d  \n", (int)getppid());
+
+  printf("Host name:     %s  \n", hostname);
+  printf("User name:     %s  \n", cuserid(NULL));
+  printf("Time of day:   %s  \n", ctime(&currentTime));
+  printf("Working directory: %s  \n", getcwd(cwd, sizeof(cwd)) );
+
   return 0;
 }
 

@@ -23,22 +23,7 @@
 
    P0 creates environment var WHALE = 7 putenv()
    P0 forks two child processes C1 and C2
-   Then C1 and C2 print their pid : getpid() and parents : getppid()
-
-
-   if(putenv("DIS=5")!=0){
-     perror("putenv");
-   }
-
-   execlp("ls","ls", NULL); //check for errors
-
-   if (gethostname(hostname,sizeof(hostname)!=0){
-   perror("host");
-
-   if userid == NULL {
-    perror
- }
- }
+   Then C1 and C2 print their pid : getpid() and parents : getppid
  }
 */
 
@@ -49,16 +34,32 @@ void printPid(){
   time_t currentTime;
   time(&currentTime);
   char cwd[1024];
-  
   char hostname[128];
 
-  gethostname(hostname, sizeof hostname);
+  if(gethostname(hostname, sizeof hostname)!=0){
+	perror("Hostname error");     
+  }
+  else{
+     	printf("Host name:     %s  \n", hostname);
+  };
 
+  if (currentTime == ((time_t) -1)) {
+        perror("time_wrapper");
+  }
+  else{
+	printf("Time of day:   %s  ", ctime(&currentTime));
+  }; 
 
-  printf("Host name:     %s  \n", hostname); 
+  //no wrapper for cuser id, read that get login is better 
+  //using cuserid for purpose of assignment requirements 
   printf("User name:     %s  \n", cuserid(NULL));
-  printf("Time of day:   %s  \n", ctime(&currentTime));
-  printf("Working directory: %s  \n\n", getcwd(cwd, sizeof(cwd)) );
+  
+  if(getcwd(cwd, sizeof(cwd))==NULL){
+     perror("getcwd");
+  }
+  else{
+    printf("Working directory: %s  \n", getcwd(cwd, sizeof(cwd)) );
+  }
 
   return;
 }
@@ -84,7 +85,7 @@ int main(){
     
     fflush(stdout);
     printf("C1 Process id:    %d  \n", mypid);
-    printf("Parent  id:    %d  \n", (int)getppid());
+    printf("Parent  id:    %d  \n\n", (int)getppid());
     fflush(stdout);
     sleep(2);
     char* buf = getenv("WHALE");
@@ -118,7 +119,9 @@ int main(){
     fflush(stdout);
 
     execl("/bin/ls", "ls", "-la", (char *)NULL);
-
+    
+    fflush(stdout);
+    printf("\n\n\n");
 
     exit(0);
 
@@ -130,7 +133,7 @@ int main(){
 
     fflush(stdout);
     printf("\nC2 Process id:    %d  \n", mypid);
-    printf("Parent  id:    %d    \n", (int)getppid());
+    printf("Parent  id:    %d    \n\n", (int)getppid());
     fflush(stdout);
     sleep(3);
 
@@ -150,7 +153,7 @@ int main(){
     
     
     char cwd[1024];
-    printf("C2: Printing current working directory: %s  \n\n", getcwd(cwd, sizeof(cwd)) );
+    printf("\n\nC2: Printing current working directory: %s  \n\n", getcwd(cwd, sizeof(cwd)) );
 
 
     exit(0);
@@ -158,14 +161,11 @@ int main(){
 
   //Parent
  else if ((pid = getppid())){
-    printf("Parent PID:(pid %d)  \n\n", mypid);
+    printf("Parent PID: %d  \n\n", mypid);
     sleep(1);
 
-    char* buf = getenv("WHALE");
-    //printf(buf);
+    char* buf = getenv("WHALE"); 
     int val = atoi(buf);
-    //printf(getenv(*var));
-   // int val = atoi(getenv(var));
 
     fflush(stdout);
     printf("PO: %d shrimp (WHALE environment variable value is now %d) \n",val,val);
@@ -208,7 +208,8 @@ int main(){
 
     end = time(NULL);
 
-    printf("Final Parent %d call",mypid);
+    printf("\nFinal parent call from pid: %d \nWHALE variable value is now %d \n",mypid, val-7);
+    exit(0);
   }
 }
 

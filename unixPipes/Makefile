@@ -1,5 +1,5 @@
-CC = gcc
-SRC = counter.c
+CC = gcc 
+SRC = mapReduce.c
 OUT = main
 
 

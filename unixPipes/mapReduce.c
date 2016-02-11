@@ -72,13 +72,14 @@ int main(void){
 
     else if(pid == 0){
       printf("\nChild %d : gonna do some work\n", getpid());
-      //char buf[BUFFER_SIZE];  
-      //read(mapper_pipes[map][0],buf,BUFFER_SIZE);  //use read end     
+      char buf[BUFFER_SIZE];   
+      read(mapper_pipes[map][0],buf,BUFFER_SIZE);  //use read end     
       //check length
       //int len = strlen(buf);
-
+      printf("Just got some information from mapper pipe %d",map);
       exit(0);
     }
+    //insert check of fork
   }
 
 

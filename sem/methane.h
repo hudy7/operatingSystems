@@ -11,6 +11,11 @@
 #include <time.h>
 #include <unistd.h>
 
+#define NUM_SEMS 3
+#define SEM 1
+#define SC 0
+#define SH 0
+
 #define SHMKEY 717
 #define SEMKEY 717
 

@@ -11,17 +11,19 @@
 #include <time.h>
 #include <unistd.h>
 
-#define NUM_SEMS 3
-#define SEM 1
-#define SC 0
-#define SH 0
+#define SHMKEY 77
+#define SEMKEY 77
 
-#define SHMKEY 717
-#define SEMKEY 717
+#define NUM_SEMS 3
+#define MUTEX 0
+#define SC 1
+#define SH 2
 
 #define NUM_HYDROGEN 4
 #define NUM_CARBON 1
 
+/* used for shared memory creation */
+#define K 1024
 
 union semun {
   unsigned short *array;

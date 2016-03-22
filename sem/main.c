@@ -66,12 +66,10 @@ int main(int argc, char **argv){
   shared->waiting_C = 0;
   shared->waiting_H = 0;
 
-  /*
-  passed into another sys call
-  passed in id group
-  set all of the semaphores in that group
-  */
-  semcontrol
+  /**** ^^^ may need more variables! ^^^ ****/
+
+  /* This is where the processes begin to be forked! */
+
 
 
 

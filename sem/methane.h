@@ -21,6 +21,7 @@
 
 #define NUM_HYDROGEN 4
 #define NUM_CARBON 1
+#define NUM_MOLECULES 25
 
 /* used for shared memory creation */
 #define K 1024
@@ -63,5 +64,5 @@ void semSignal(int semid, int semaphore){
     executes the operation that is being
     built just above
   */
-  semop(semid, &vsembuf, 1);
+  semop(semid, &vgisembuf, 1);
 };

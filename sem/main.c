@@ -70,14 +70,68 @@ int main(int argc, char **argv){
 
   /* This is where the processes begin to be forked! */
 
+  int retVal = 0;
 
+  /* RANDOM OPTIONAL
 
+  for(int i = 0; i < NUM_MOLECULES; ++i){
+    if(rand() % 4 == 0){
+      if((retVal = fork())==0){
+        hydrogen();
+      }
+    }
+    else {
+      if ((retVal = fork()) == 0){
+        carbon();
+      }
+    }
+  }
 
+  //waits for that to finish
+  for(int i = 0; i < NUM_MOLECULES; ++i){
+    wait(0);
+  }
+  */
 
+  /* PRESET SPAWNING OF MOLECULES */
 
+  //spawn 6 east cars
+		for (int i = 0; i < 6; ++i) {
+			if ((retVal = fork()) == 0) {
+        printf("forked cars");
+        //east();
+			} else if (retVal < 0) {
+				perror("fork");
+				exit(EXIT_FAILURE);
+			}//else still main process.. continue loop
+		}
 
+		//spawn 6 west cars
+		for (int i = 0; i < 6; ++i) {
+			if ((retVal = fork()) == 0) {
+        printf("forked west cars");
+        //west();
+			} else if (retVal < 0) {
+				perror("fork");
+				exit(EXIT_FAILURE);
+			}//else still main process.. continue loop
+		}
 
+		//spawn 1 more east car
+		if ((retVal = fork()) == 0) {
+      printf("Forked an east car");
+      //east();
+		} else if (retVal < 0) {
+			perror("fork");
+			exit(EXIT_FAILURE);
+		}//else still in main process
 
-
+		//wait for all car processes to finish
+		for (int i = 0; i < 13; ++i) {
+			if (wait(0) < 0) {
+				perror("wait");
+				exit(EXIT_FAILURE);
+			}
+		}
 
 }

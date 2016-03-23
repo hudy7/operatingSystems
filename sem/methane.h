@@ -63,5 +63,5 @@ void semSignal(int semid, int semaphore){
     executes the operation that is being
     built just above
   */
-  semop(semid, &psembuf, 1);
+  semop(semid, &vsembuf, 1);
 };

@@ -1,5 +1,5 @@
 all: main.c methane.h
-	#gcc -Wno-cpp -std=c99 -o east east.c
+	gcc -Wno-cpp -std=c99 -o hydrogen hydrogen.c
 	#gcc -Wno-cpp -std=c99 -o west west.c
 	gcc -Wno-cpp -std=c99 -g -o main main.c
 	chmod 755 main

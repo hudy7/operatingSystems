@@ -99,11 +99,11 @@ int main(int argc, char **argv){
 
   /* PRESET SPAWNING OF MOLECULES */
 
-  //spawn 6 east cars
-		for (int i = 0; i < 6; ++i) {
+  //spawn 6 hydrogen
+		for (int i = 0; i < 4; ++i) {
 			if ((retVal = fork()) == 0) {
-        printf("%d forked cars \n", i);
-        //east();
+        printf("%d forked HYDROGENS \n", i);
+        hydrogen();
 			} else if (retVal < 0) {
 				perror("fork");
 				exit(EXIT_FAILURE);
@@ -152,5 +152,16 @@ int main(int argc, char **argv){
 
   return EXIT_SUCCESS;
 
+}
 
+void carbon(void){
+  execl("carbon","carbon", 0);
+  perror("execl");
+  exit(EXIT_FAILURE);
+}
+
+void hydrogen(void){
+  execl("hydrogen","hydrogen", 0);
+  perror("execl");
+  exit(EXIT_FAILURE);
 }

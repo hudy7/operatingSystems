@@ -35,6 +35,7 @@ int main(int argc, char const *argv[]){
   printf("HYDROGEN %d HAS ARRIVED", pid);
   fflush(stdout);
 
+  printVariables();
 
 
 
@@ -42,4 +43,8 @@ int main(int argc, char const *argv[]){
 
 
 
+}
+
+void printVariables(void){
+  printf("waiting_C: %d ,  waiting_H: %d", shared->waiting_C, shared->waiting_H);
 }

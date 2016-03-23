@@ -58,7 +58,7 @@ int main(int argc, char **argv){
 	}
 
   /* get shared memory id */
-	if ((shmid = shmget(SHMKEY, 1*K, 0777)) < 0) {
+	if ((shmid = shmget(SHMKEY, 1*K, 0)) < 0) {
 		perror("shmget");
 		exit(EXIT_FAILURE);
 	}
@@ -174,7 +174,7 @@ void carbon(void){
 
 void hydrogen(void){
   printf("IN THE HYDROGEN METHOD");
-  execl("hydrogen","hydrogen", 0);
+  execl("hydrogen","hydrogen",0);
   perror("execl");
   exit(EXIT_FAILURE);
 }

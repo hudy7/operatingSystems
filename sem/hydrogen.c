@@ -5,7 +5,7 @@ struct common *shared; //ptr to shared data
 void printVariables(void);
 
 int main(int argc, char const *argv[]){
-
+  printf("DO I EVEN MAKE IT INTO THIS MAIN?");
   int semid;
   int shmid;
 

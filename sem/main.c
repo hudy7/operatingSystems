@@ -13,7 +13,7 @@ time_t t;
 */
 
 void hydrogen(void);
-void carbon(void);
+//void carbon(void);
 
 
 int main(int argc, char **argv){
@@ -161,14 +161,16 @@ int main(int argc, char **argv){
   return EXIT_SUCCESS;
 
 }
-
+/*
 void carbon(void){
   execl("carbon","carbon", 0);
   perror("execl");
   exit(EXIT_FAILURE);
 }
+*/
 
 void hydrogen(void){
+  printf("IN THE HYDROGEN METHOD");
   execl("hydrogen","hydrogen", 0);
   perror("execl");
   exit(EXIT_FAILURE);

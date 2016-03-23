@@ -49,7 +49,7 @@ void semWait(int semid, int semaphore){
     executes the operation that is being
     built just above
   */
-  semop(semit, &psembuf, 1);
+  semop(semid, &psembuf, 1);
 };
 
 void semSignal(int semid, int semaphore){
@@ -63,5 +63,5 @@ void semSignal(int semid, int semaphore){
     executes the operation that is being
     built just above
   */
-  semop(semit, &psembuf, 1);
+  semop(semid, &psembuf, 1);
 };

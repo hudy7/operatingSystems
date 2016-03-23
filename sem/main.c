@@ -22,6 +22,8 @@ int main(int argc, char **argv){
   semctlarg.array = seminit;/*set control array */
   srand((unsigned) time(&t));  /* generates random numbers */
 
+  printf("Made it through initialization");
+
   /*
   semget call, pass in a semaphore key,
   want the system to generate this number of semaphores
@@ -33,6 +35,8 @@ int main(int argc, char **argv){
 		perror("semget");
 		exit(EXIT_FAILURE);
 	}
+
+  printf("Made it through semid = semget line 34");
 
   /*
   initialize the element counts of the array accordingly

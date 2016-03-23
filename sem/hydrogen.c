@@ -28,6 +28,7 @@ int main(int argc, char const *argv[]){
 		perror("shmat");
 		exit(EXIT_FAILURE);
 	}
+  printVariables();
 
   semWait(semid, MUTEX);
 

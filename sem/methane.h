@@ -27,7 +27,7 @@
 
 union semun {
   unsigned short *array;
-}
+};
 
 /*
   define a struct that will hold
@@ -36,7 +36,7 @@ union semun {
 struct common {
   int waiting_C = 0;
   int waiting_H = 0;
-}
+};
 
 void semWait(int semid, int semaphore){
   struct sembuf psembuf;
@@ -50,7 +50,7 @@ void semWait(int semid, int semaphore){
     built just above
   */
   semop(semit, &psembuf, 1);
-}
+};
 
 void semSignal(int semid, int semaphore){
   struct sembuf vsembuf;
@@ -64,4 +64,4 @@ void semSignal(int semid, int semaphore){
     built just above
   */
   semop(semit, &psembuf, 1);
-}
+};

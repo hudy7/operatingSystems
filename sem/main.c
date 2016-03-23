@@ -40,6 +40,8 @@ int main(int argc, char **argv){
 	}
 
   printf("Made it through semid = semget line 34\n");
+  printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
+  hydrogen();
 
   /*
   initialize the element counts of the array accordingly
@@ -76,8 +78,7 @@ int main(int argc, char **argv){
   /**** ^^^ may need more variables! ^^^ ****/
 
   /* This is where the processes begin to be forked! */
-  printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
-  //hydrogen();
+
 
   int retVal = 0;
 

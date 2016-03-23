@@ -76,6 +76,8 @@ int main(int argc, char **argv){
   /**** ^^^ may need more variables! ^^^ ****/
 
   /* This is where the processes begin to be forked! */
+  printf("HERE ABOUT TO MAKE HYDROGEN CALL");
+  hydrogen();
 
   int retVal = 0;
 
@@ -100,7 +102,7 @@ int main(int argc, char **argv){
   }
   */
 
-  /* PRESET SPAWNING OF MOLECULES */
+  /* PRESET SPAWNING OF MOLECULES
 
   //spawn 6 hydrogen
 		for (int i = 0; i < 4; ++i) {
@@ -152,6 +154,8 @@ int main(int argc, char **argv){
 		perror("shmctl");
 		exit(EXIT_FAILURE);
 	}
+
+  */
 
   return EXIT_SUCCESS;
 

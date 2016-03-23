@@ -22,7 +22,7 @@ int main(int argc, char **argv){
   semctlarg.array = seminit;/*set control array */
   srand((unsigned) time(&t));  /* generates random numbers */
 
-  printf("Made it through initialization");
+  printf("Made it through initialization \n");
 
   /*
   semget call, pass in a semaphore key,
@@ -36,7 +36,7 @@ int main(int argc, char **argv){
 		exit(EXIT_FAILURE);
 	}
 
-  printf("Made it through semid = semget line 34");
+  printf("Made it through semid = semget line 34\n");
 
   /*
   initialize the element counts of the array accordingly
@@ -102,7 +102,7 @@ int main(int argc, char **argv){
   //spawn 6 east cars
 		for (int i = 0; i < 6; ++i) {
 			if ((retVal = fork()) == 0) {
-        printf("forked cars");
+        printf("%d forked cars \n", i);
         //east();
 			} else if (retVal < 0) {
 				perror("fork");
@@ -113,7 +113,7 @@ int main(int argc, char **argv){
 		//spawn 6 west cars
 		for (int i = 0; i < 6; ++i) {
 			if ((retVal = fork()) == 0) {
-        printf("forked west cars");
+        printf("%d forked west cars\n",i);
         //west();
 			} else if (retVal < 0) {
 				perror("fork");
@@ -123,7 +123,7 @@ int main(int argc, char **argv){
 
 		//spawn 1 more east car
 		if ((retVal = fork()) == 0) {
-      printf("Forked an east car");
+      printf("Forked a single east ca\nr");
       //east();
 		} else if (retVal < 0) {
 			perror("fork");

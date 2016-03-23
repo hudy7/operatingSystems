@@ -12,6 +12,9 @@ time_t t;
 
 */
 
+void hydrogen(void);
+void carbon(void);
+
 
 int main(int argc, char **argv){
   int semid;  /* semaphore memory id */

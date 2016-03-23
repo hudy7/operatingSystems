@@ -34,8 +34,8 @@ union semun {
   all shared variables
 */
 struct common {
-  int waiting_C = 0;
-  int waiting_H = 0;
+  int waiting_C;
+  int waiting_H;
 };
 
 void semWait(int semid, int semaphore){

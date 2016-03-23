@@ -34,7 +34,7 @@ int main(int argc, char **argv){
   this is the only way to access them
   MAIN POINT: get semaphore memory id
   */
-  if ((semid = semget(SEMKEY, NUM_SEMS, 0)) < 0) {
+  if ((semid = semget(SEMKEY, NUM_SEMS, 0777)) < 0) {
 		perror("semget");
 		exit(EXIT_FAILURE);
 	}
@@ -58,7 +58,7 @@ int main(int argc, char **argv){
 	}
 
   /* get shared memory id */
-	if ((shmid = shmget(SHMKEY, 1*K, 0)) < 0) {
+	if ((shmid = shmget(SHMKEY, 1*K, 0777)) < 0) {
 		perror("shmget");
 		exit(EXIT_FAILURE);
 	}

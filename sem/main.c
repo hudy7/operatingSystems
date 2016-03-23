@@ -76,8 +76,8 @@ int main(int argc, char **argv){
   /**** ^^^ may need more variables! ^^^ ****/
 
   /* This is where the processes begin to be forked! */
-  printf("HERE ABOUT TO MAKE HYDROGEN CALL");
-  hydrogen();
+  printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
+  //hydrogen();
 
   int retVal = 0;
 

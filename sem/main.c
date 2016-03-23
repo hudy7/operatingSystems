@@ -40,8 +40,6 @@ int main(int argc, char **argv){
 	}
 
   printf("Made it through semid = semget line 34\n");
-  printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
-  hydrogen();
 
   /*
   initialize the element counts of the array accordingly
@@ -81,6 +79,10 @@ int main(int argc, char **argv){
 
 
   int retVal = 0;
+  if((retVal = fork()) == 0){
+    printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
+    hydrogen();
+  }
 
   /* RANDOM OPTIONAL
 

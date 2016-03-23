@@ -82,6 +82,7 @@ int main(int argc, char **argv){
   if((retVal = fork()) == 0){
     printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
     hydrogen();
+    printf("FORKED ALREADY");
   }
 
   /* RANDOM OPTIONAL

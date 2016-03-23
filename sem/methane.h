@@ -11,8 +11,8 @@
 #include <time.h>
 #include <unistd.h>
 
-#define SHMKEY 77
-#define SEMKEY 77
+#define SHMKEY IPC_PRIVATE
+#define SEMKEY IPC_PRIVATE
 
 #define NUM_SEMS 3
 #define MUTEX 0

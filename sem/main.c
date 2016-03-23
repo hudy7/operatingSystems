@@ -123,7 +123,7 @@ int main(int argc, char **argv){
 
 		//spawn 1 more east car
 		if ((retVal = fork()) == 0) {
-      printf("Forked a single east ca\nr");
+      printf("Forked a single east car\n");
       //east();
 		} else if (retVal < 0) {
 			perror("fork");
@@ -137,5 +137,20 @@ int main(int argc, char **argv){
 				exit(EXIT_FAILURE);
 			}
 		}
+
+  //delete semaphores
+	if (semctl(semid, NUM_SEMS, IPC_RMID, 0) < 0) {
+		perror("semctl");
+		exit(EXIT_FAILURE);
+	}
+
+  //delete shared memory
+	if (shmctl(shmid, IPC_RMID, 0) < 0) {
+		perror("shmctl");
+		exit(EXIT_FAILURE);
+	}
+
+  return EXIT_SUCCESS;
+
 
 }

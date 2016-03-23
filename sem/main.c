@@ -34,7 +34,7 @@ int main(int argc, char **argv){
   this is the only way to access them
   MAIN POINT: get semaphore memory id
   */
-  if ((semid = semget(SEMKEY, NUM_SEMS, 0777)) < 0) {
+  if ((semid = semget(SEMKEY, NUM_SEMS, 0)) < 0) {
 		perror("semget");
 		exit(EXIT_FAILURE);
 	}

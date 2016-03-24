@@ -170,11 +170,11 @@ int main(int argc, char **argv){
 
 }
 
-
+/*
 void printVariables(void){
   printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
 }
-
+*/
 
 
 

@@ -184,10 +184,10 @@ void carbon(void){
 
 
 void hydrogen(void){
-  printf("IN THE HYDROGEN METHOD");
+  printf("IN THE HYDROGEN METHOD change");
   //printVariables();
 
-  printf("Printing in hydrogen: waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
+  //printf("Printing in hydrogen: waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
 
 
 

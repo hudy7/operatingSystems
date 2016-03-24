@@ -83,7 +83,7 @@ int main(int argc, char **argv){
 
   for(int i = 0; i < NUM_HYDROGEN; ++i){
     if((retVal = fork()) == 0){
-      printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
+      printf("HERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
       hydrogen();
       printf("FORKED ALREADY\n");
     }

@@ -12,8 +12,9 @@ time_t t;
 
 */
 
+void printVariables(void);
 void hydrogen(void);
-//void carbon(void);
+void carbon(void);
 
 
 int main(int argc, char **argv){
@@ -82,8 +83,10 @@ int main(int argc, char **argv){
   if((retVal = fork()) == 0){
     printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
     hydrogen();
-    printf("FORKED ALREADY");
+    printf("FORKED ALREADY\n");
   }
+
+  printVariables();
 
   /* RANDOM OPTIONAL
 
@@ -164,18 +167,25 @@ int main(int argc, char **argv){
   return EXIT_SUCCESS;
 
 }
-/*
-void carbon(void){
-  execl("carbon","carbon", 0);
-  perror("execl");
-  exit(EXIT_FAILURE);
+
+
+void printVariables(void){
+  printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
 }
-*/
+
+
+
+
+
+void carbon(void){
+
+}
+
 
 void hydrogen(void){
   printf("IN THE HYDROGEN METHOD");
 
-  //execl("hydrogen","hydrogen",0);
-  //perror("execl");
-  //exit(EXIT_FAILURE);
+
+
+
 }

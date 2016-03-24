@@ -86,7 +86,7 @@ int main(int argc, char **argv){
     printf("FORKED ALREADY\n");
   }
 
-  printVariables();
+//  printVariables();
 
   /* RANDOM OPTIONAL
 
@@ -184,6 +184,7 @@ void carbon(void){
 
 void hydrogen(void){
   printf("IN THE HYDROGEN METHOD");
+  printVariables();
 
 
 

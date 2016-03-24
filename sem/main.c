@@ -85,6 +85,8 @@ int main(int argc, char **argv){
     hydrogen();
     printf("FORKED ALREADY\n");
   }
+  printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
+
 
 //  printVariables();
 
@@ -184,7 +186,7 @@ void carbon(void){
 
 void hydrogen(void){
   printf("IN THE HYDROGEN METHOD");
-  printVariables();
+  //printVariables();
 
 
 

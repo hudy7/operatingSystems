@@ -174,7 +174,8 @@ void carbon(void){
 
 void hydrogen(void){
   printf("IN THE HYDROGEN METHOD");
-  execl("hydrogen","hydrogen",0);
-  perror("execl");
-  exit(EXIT_FAILURE);
+
+  //execl("hydrogen","hydrogen",0);
+  //perror("execl");
+  //exit(EXIT_FAILURE);
 }

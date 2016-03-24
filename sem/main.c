@@ -80,10 +80,13 @@ int main(int argc, char **argv){
 
 
   int retVal = 0;
-  if((retVal = fork()) == 0){
-    printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
-    hydrogen();
-    printf("FORKED ALREADY\n");
+
+  for(int i = 0; i < NUM_HYDROGEN; ++i){
+    if((retVal = fork()) == 0){
+      printf("HERE ABOUT TO MAKE HYDROGEN CALL\n");
+      hydrogen();
+      printf("FORKED ALREADY\n");
+    }
   }
 
 
@@ -184,7 +187,7 @@ void carbon(void){
 
 
 void hydrogen(void){
-  printf("IN THE HYDROGEN METHOD change");
+  printf("IN THE HYDROGEN METHOD\n");
   //printVariables();
 
   //printf("Printing in hydrogen: waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
@@ -212,7 +215,7 @@ void hydrogen(void){
   	exit(EXIT_FAILURE);
   }
 
-  printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
+  printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
 
 

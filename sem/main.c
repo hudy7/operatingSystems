@@ -188,6 +188,7 @@ void hydrogen(void){
   printf("IN THE HYDROGEN METHOD");
   //printVariables();
 
+  printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
 
 
 

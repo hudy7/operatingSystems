@@ -73,7 +73,7 @@ int main(int argc, char **argv){
   /* initialize shared data structure variables */
   shared->waiting_C = 0;
   shared->waiting_H = 0;
-  printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
+  //printf("waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
 
   /**** ^^^ may need more variables! ^^^ ****/
 

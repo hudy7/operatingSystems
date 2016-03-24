@@ -188,8 +188,10 @@ void hydrogen(void){
   //printVariables();
 
   //printf("Printing in hydrogen: waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
-  int semid, shmid;//semaphore memory id, shared memory id
 
+  struct common *shared;
+
+  int semid, shmid;//semaphore memory id, shared memory id
   int pid = getpid();
 
   //get semaphore memory id

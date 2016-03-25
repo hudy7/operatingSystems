@@ -84,10 +84,21 @@ int main(int argc, char **argv){
   for(int i = 0; i < NUM_HYDROGEN; i++){
     if((retVal = fork()) == 0){
       semWait(semid,MUTEX);
-      printf("\nHERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
-      printf("\n Just waited MUTEX\n");
+      printf("\nHYDROGEN: HERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
+      printf("\nHYDROGEN: Just waited MUTEX\n");
       hydrogen();
-      printf("FORKED ALREADY\n");
+      printf("HYDROGEN: FORKED ALREADY\n");
+    }
+  }
+
+  int carbonRetVal = 0;
+  for(int i = 0; i < NUM_CARBON; i++){
+    if((carbonRetVal = fork()) == 0){
+      semWait(semid,MUTEX);
+      printf("\nCARBON: HERE FOR THE %d ABOUT TO MAKE CARBON CALL\n", i);
+      printf("\n CARBON: Just waited MUTEX\n");
+      carbon();
+      printf("CARBON: FORKED ALREADY\n");
     }
   }
 
@@ -184,6 +195,33 @@ void printVariables(void){
 
 
 void carbon(void){
+  printf("IN THE CARBON METHOD\n");
+  struct common *shared;
+
+  int semid, shmid;//semaphore memory id, shared memory id
+  int pid = getpid();
+
+  //get semaphore memory id
+	if ((semid = semget(SEMKEY, NUM_SEMS, 0777)) < 0) {
+		perror("semget");
+		exit(EXIT_FAILURE);
+	}
+
+	//get shared memory id
+  if ((shmid = shmget(SHMKEY, 1*K, 0777)) < 0) {
+  	perror("shmget");
+  	exit(EXIT_FAILURE);
+  }
+
+  //get pointer to shared data structure
+  if ((shared = (struct common *)shmat(shmid, 0, 0)) < 0) {
+  	perror("shmat");
+  	exit(EXIT_FAILURE);
+  }
+
+  //semWait(semid, MUTEX);
+
+  printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
 }
 

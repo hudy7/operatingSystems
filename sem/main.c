@@ -223,7 +223,9 @@ void carbon(void){
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
   printf("CARBON: signaling mutex\n");
+  shared->waiting_C += 1;
   semSignal(semid,MUTEX);
+  semWait(semid,SH);
 }
 
 

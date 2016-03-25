@@ -90,7 +90,7 @@ int main(int argc, char **argv){
       printf("HYDROGEN: FORKED ALREADY\n");
     }
   }
-
+  /*
   int carbonRetVal = 0;
   for(int i = 0; i < NUM_CARBON; i++){
     if((carbonRetVal = fork()) == 0){
@@ -101,7 +101,7 @@ int main(int argc, char **argv){
       printf("CARBON: FORKED ALREADY\n");
     }
   }
-
+*/
 
 //  printVariables();
 

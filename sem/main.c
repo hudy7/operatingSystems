@@ -233,9 +233,9 @@ void hydrogen(void){
   }
   else{
     shared->waiting_H += 1;
-    printf("signaling MUTEX");
+    printf("signaling MUTEX\n");
     fflush(stdout);
-    printf("HYDROGEN %d HAS ARRIVED", pid);
+    printf("HYDROGEN %d HAS ARRIVED\n", pid);
     fflush(stdout);
 
     printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);

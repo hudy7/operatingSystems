@@ -284,7 +284,7 @@ void hydrogen(void){
 
     semSignal(semid,MUTEX);
 
-    printf("HYDROGEN: released lock on MUTEX\n");
+    printf("HYDROGEN : released lock on MUTEX\n");
     semWait(semid,SC);
   }
 

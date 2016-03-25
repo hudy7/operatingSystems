@@ -221,7 +221,21 @@ void hydrogen(void){
   shared->waiting_H++;
   printf("Second: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
+  if(waiting_H >= 3 && waiting_C >= 1){
+      for(i = 0; i < 3; i++){ // release 3 HYDROGEN
+        semSignal(semid,SH);
+        waiting_H -= 3;
+        semSignal(semid,SC);
+        waiting_C -= 1;
 
+        signal(semid, MUTEX); //release MUTEXT
+      }
+  }
+  else{
+    waiting_H += 1;
+    signal(semid,MUTEX);
+    wait(SH);
+  }
 
 
   fflush(stdout);

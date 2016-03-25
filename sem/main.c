@@ -216,6 +216,9 @@ void hydrogen(void){
   }
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
+  shared->waiting_H++;
+  printf("Second: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
+
 
   semWait(semid, MUTEX);
 
@@ -224,6 +227,7 @@ void hydrogen(void){
   fflush(stdout);
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
+
 
 
 }

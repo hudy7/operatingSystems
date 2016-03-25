@@ -217,6 +217,13 @@ void hydrogen(void){
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
+  semWait(semid, MUTEX);
+
+  fflush(stdout);
+  printf("HYDROGEN %d HAS ARRIVED", pid);
+  fflush(stdout);
+
+  printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
 
 }

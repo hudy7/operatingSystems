@@ -222,7 +222,7 @@ void hydrogen(void){
   printf("Second: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
   if(shared->waiting_H >= 3 && shared->waiting_C >= 1){
-      for(i = 0; i < 3; i++){ // release 3 HYDROGEN
+      for(int i = 0; i < 3; i++){ // release 3 HYDROGEN
         semSignal(semid,SH);
         shared->waiting_H -= 3;
         semSignal(semid,SC);
@@ -234,7 +234,7 @@ void hydrogen(void){
   else{
     shared->waiting_H += 1;
     semSignal(semid,MUTEX);
-    semWait(SH);
+    semWait(semid,SH);
   }
 
 

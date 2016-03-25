@@ -242,7 +242,7 @@ void hydrogen(void){
 
     semSignal(semid,MUTEX);
 
-    printf("released lock on MUTEX, value now: %d\n",shared->MUTEX);
+    printf("released lock on MUTEX\n");
     semWait(semid,SH);
   }
 

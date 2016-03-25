@@ -220,8 +220,6 @@ void hydrogen(void){
   //semWait(semid, MUTEX);
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
-  shared->waiting_H++;
-  printf("Second: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
   if(shared->waiting_H >= 3 && shared->waiting_C >= 1){
       for(int i = 0; i < 3; i++){ // release 3 HYDROGEN

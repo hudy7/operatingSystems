@@ -85,6 +85,7 @@ int main(int argc, char **argv){
     if((retVal = fork()) == 0){
       printf("\nHERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
       semSignal(semid,MUTEX);
+      printf("\n Just signaled MUTEX\n");
       hydrogen();
       printf("FORKED ALREADY\n");
     }

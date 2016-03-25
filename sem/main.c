@@ -217,7 +217,7 @@ void hydrogen(void){
   	exit(EXIT_FAILURE);
   }
 
-  semWait(semid, MUTEX);
+  //semWait(semid, MUTEX);
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
   shared->waiting_H++;

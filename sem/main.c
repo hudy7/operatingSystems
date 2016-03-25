@@ -203,19 +203,19 @@ void carbon(void){
 
   //get semaphore memory id
 	if ((semid = semget(SEMKEY, NUM_SEMS, 0777)) < 0) {
-		perror("semget");
+		perror("CARBON: semget");
 		exit(EXIT_FAILURE);
 	}
 
 	//get shared memory id
   if ((shmid = shmget(SHMKEY, 1*K, 0777)) < 0) {
-  	perror("shmget");
+  	perror("CARBON: shmget");
   	exit(EXIT_FAILURE);
   }
 
   //get pointer to shared data structure
   if ((shared = (struct common *)shmat(shmid, 0, 0)) < 0) {
-  	perror("shmat");
+  	perror("CARBON: shmat");
   	exit(EXIT_FAILURE);
   }
 
@@ -243,19 +243,19 @@ void hydrogen(void){
 
   //get semaphore memory id
 	if ((semid = semget(SEMKEY, NUM_SEMS, 0777)) < 0) {
-		perror("semget");
+		perror("HYDROGEN: semget");
 		exit(EXIT_FAILURE);
 	}
 
 	//get shared memory id
   if ((shmid = shmget(SHMKEY, 1*K, 0777)) < 0) {
-  	perror("shmget");
+  	perror("HYDROGEN: shmget");
   	exit(EXIT_FAILURE);
   }
 
   //get pointer to shared data structure
   if ((shared = (struct common *)shmat(shmid, 0, 0)) < 0) {
-  	perror("shmat");
+  	perror("HYDROGEN: shmat");
   	exit(EXIT_FAILURE);
   }
 
@@ -275,7 +275,7 @@ void hydrogen(void){
   }
   else{
     shared->waiting_H += 1;
-    printf("signaling MUTEX\n");
+    printf("HYDROGEN: signaling MUTEX\n");
     fflush(stdout);
     printf("HYDROGEN: %d HAS ARRIVED\n", pid);
     fflush(stdout);

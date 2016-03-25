@@ -228,13 +228,13 @@ void hydrogen(void){
         semSignal(semid,SC);
         waiting_C -= 1;
 
-        signal(semid, MUTEX); //release MUTEXT
+        semSignal(semid, MUTEX); //release MUTEXT
       }
   }
   else{
     waiting_H += 1;
-    signal(semid,MUTEX);
-    wait(SH);
+    semSignal(semid,MUTEX);
+    semWait(SH);
   }
 
 

@@ -84,7 +84,7 @@ int main(int argc, char **argv){
   for(int i = 0; i < NUM_HYDROGEN; i++){
     if((retVal = fork()) == 0){
       semWait(semid,MUTEX);
-      printf("\nHERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);  
+      printf("\nHERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
       printf("\n Just waited MUTEX\n");
       hydrogen();
       printf("FORKED ALREADY\n");
@@ -235,16 +235,18 @@ void hydrogen(void){
   }
   else{
     shared->waiting_H += 1;
+    printf("signaling MUTEX");
+    fflush(stdout);
+    printf("HYDROGEN %d HAS ARRIVED", pid);
+    fflush(stdout);
+
+    printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
+
     semSignal(semid,MUTEX);
     semWait(semid,SH);
   }
 
 
-  fflush(stdout);
-  printf("HYDROGEN %d HAS ARRIVED", pid);
-  fflush(stdout);
-
-  printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
 
 

@@ -192,8 +192,6 @@ void hydrogen(void){
 
   //printf("Printing in hydrogen: waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
 
-  semWait(semid, MUTEX);
-
   struct common *shared;
 
   int semid, shmid;//semaphore memory id, shared memory id
@@ -216,6 +214,8 @@ void hydrogen(void){
   	perror("shmat");
   	exit(EXIT_FAILURE);
   }
+
+  semWait(semid, MUTEX);
 
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
   shared->waiting_H++;

@@ -226,11 +226,12 @@ void carbon(void){
   shared->waiting_C += 1;
   semSignal(semid,MUTEX);
   semWait(semid,SH);
+  printf("CARBON: waiting for SH");
 }
 
 
 void hydrogen(void){
-  printf("IN THE HYDROGEN METHOD\n");
+  printf("HYDROGEN: IN THE HYDROGEN METHOD\n");
   //printVariables();
 
   //printf("Printing in hydrogen: waiting_H: %d,  waiting_C: %d", shared->waiting_H, shared->waiting_C);
@@ -260,7 +261,7 @@ void hydrogen(void){
 
   //semWait(semid, MUTEX);
 
-  printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
+  printf("HYDROGEN: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
   if(shared->waiting_H >= 3 && shared->waiting_C >= 1){
       for(int i = 0; i < 3; i++){ // release 3 HYDROGEN
@@ -276,15 +277,15 @@ void hydrogen(void){
     shared->waiting_H += 1;
     printf("signaling MUTEX\n");
     fflush(stdout);
-    printf("HYDROGEN %d HAS ARRIVED\n", pid);
+    printf("HYDROGEN: %d HAS ARRIVED\n", pid);
     fflush(stdout);
 
-    printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
+    printf("HYDROGEN: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
     semSignal(semid,MUTEX);
 
-    printf("released lock on MUTEX\n");
-    semWait(semid,SH);
+    printf("HYDROGEN: released lock on MUTEX\n");
+    semWait(semid,SC);
   }
 
 

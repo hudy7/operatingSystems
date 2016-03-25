@@ -241,6 +241,8 @@ void hydrogen(void){
     printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 
     semSignal(semid,MUTEX);
+
+    printf("released lock on MUTEX, value now: %d\n",shared->MUTEX);
     semWait(semid,SH);
   }
 

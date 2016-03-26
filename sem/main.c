@@ -168,7 +168,7 @@ int main(int argc, char **argv){
 		}
 */
   printf("WAITING\n");
-  for(int i = 0; i < 13; ++i){}
+  for(int i = 0; i < 13; ++i){
     if(wait(0) < 0){
       perror("wait");
       exit(EXIT_FAILURE);

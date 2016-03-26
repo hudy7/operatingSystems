@@ -83,7 +83,7 @@ int main(int argc, char **argv){
 
   //for(int i = 0; i < NUM_HYDROGEN; i++){
     if((retVal = fork()) == 0){
-      semWait(semid,MUTEX);
+      //semWait(semid,MUTEX);
       printf("\nHYDROGEN: HERE FOR THE  ABOUT TO MAKE HYDROGEN CALL\n");//, i);
       printf("\nHYDROGEN: Just waited MUTEX\n");
       hydrogen();
@@ -230,9 +230,9 @@ void carbon(void){
   	perror("CARBON: shmat");
   	exit(EXIT_FAILURE);
   }
-
-  //semWait(semid, MUTEX);
-
+  printf("HYRDROGEN: WAITING FOR MUTEX BRO\n");
+  semWait(semid, MUTEX);
+printf("HYDROGEN: GOT THE MUTEX!!\n");
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
   printf("CARBON: signaling mutex\n");
   shared->waiting_C += 1;

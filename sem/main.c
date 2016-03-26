@@ -84,7 +84,7 @@ int main(int argc, char **argv){
   //for(int i = 0; i < NUM_HYDROGEN; i++){
     if((retVal = fork()) == 0){
       semWait(semid,MUTEX);
-      printf("\nHYDROGEN: HERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
+      printf("\nHYDROGEN: HERE FOR THE  ABOUT TO MAKE HYDROGEN CALL\n");//, i);
       printf("\nHYDROGEN: Just waited MUTEX\n");
       hydrogen();
       printf("HYDROGEN: FORKED ALREADY\n");

@@ -166,20 +166,25 @@ int main(int argc, char **argv){
 				exit(EXIT_FAILURE);
 			}
 		}
+*/
 
+  printf("CLEANING UP: \n");
   //delete semaphores
 	if (semctl(semid, NUM_SEMS, IPC_RMID, 0) < 0) {
 		perror("semctl");
 		exit(EXIT_FAILURE);
 	}
+  printf("SEMAPHORES CLEANED\n");
 
   //delete shared memory
 	if (shmctl(shmid, IPC_RMID, 0) < 0) {
 		perror("shmctl");
 		exit(EXIT_FAILURE);
 	}
+  printf("SHARED MEMORY CLEANED\n");
+  printf("CLEAN\n");
 
-  */
+
 
   return EXIT_SUCCESS;
 

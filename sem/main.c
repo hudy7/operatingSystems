@@ -230,9 +230,7 @@ void carbon(void){
   	perror("CARBON: shmat");
   	exit(EXIT_FAILURE);
   }
-  printf("HYRDROGEN: WAITING FOR MUTEX BRO\n");
-  semWait(semid, MUTEX);
-printf("HYDROGEN: GOT THE MUTEX!!\n");
+
   printf("waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
   printf("CARBON: signaling mutex\n");
   shared->waiting_C += 1;
@@ -271,7 +269,9 @@ void hydrogen(void){
   	exit(EXIT_FAILURE);
   }
 
-  //semWait(semid, MUTEX);
+  printf("HYRDROGEN: WAITING FOR MUTEX BRO\n");
+  semWait(semid, MUTEX);
+  printf("HYDROGEN: GOT THE MUTEX!!\n");
 
   printf("HYDROGEN: waiting_H: %d,  waiting_C: %d \n", shared->waiting_H, shared->waiting_C);
 

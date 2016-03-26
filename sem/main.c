@@ -81,7 +81,7 @@ int main(int argc, char **argv){
 
   int retVal = 0;
 
-  for(int i = 0; i < NUM_HYDROGEN; i++){
+  //for(int i = 0; i < NUM_HYDROGEN; i++){
     if((retVal = fork()) == 0){
       semWait(semid,MUTEX);
       printf("\nHYDROGEN: HERE FOR THE %d ABOUT TO MAKE HYDROGEN CALL\n", i);
@@ -89,7 +89,7 @@ int main(int argc, char **argv){
       hydrogen();
       printf("HYDROGEN: FORKED ALREADY\n");
     }
-  }
+  //}
   /*
   int carbonRetVal = 0;
   for(int i = 0; i < NUM_CARBON; i++){
@@ -167,6 +167,13 @@ int main(int argc, char **argv){
 			}
 		}
 */
+  printf("WAITING\n");
+  for(int i = 0; i < 13; ++i){}
+    if(wait(0) < 0){
+      perror("wait");
+      exit(EXIT_FAILURE);
+    }
+  }
 
   printf("CLEANING UP: \n");
   //delete semaphores

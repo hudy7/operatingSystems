@@ -74,9 +74,9 @@ void printBarrier(bool isCarbon, int waiting_C, int waiting_H){
   }
   fflush(stdout);
   //print the number of elements waiting
-  printf("Number of Carbons waiting:  %d", waiting_C);
+  printf("Number of Carbons waiting:  %d\n", waiting_C);
   fflush(stdout);
-  printf("Number of Hydrogens waiting:  %d", waiting_H);
+  printf("Number of Hydrogens waiting:  %d\n", waiting_H);
   fflush(stdout);
 
   return;
@@ -84,7 +84,7 @@ void printBarrier(bool isCarbon, int waiting_C, int waiting_H){
 
 void printCH4(){
   fflush(stdout);
-  printf("CH4 has crossed barrier! YES METHANE!");
+  printf("CH4 has crossed barrier! YES METHANE!\n");
   fflush(stdout);
 }
 

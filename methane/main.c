@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
   union semun semctlarg;  /* union defined in header file, used to initialize semaphores */
   srand((unsigned) time(&t));  /* generates random numbers */
 
-	if ((semid = semget(IPC_PRIVATE, SEM_COUNT, 0777)) < 0) {
+	if ((semid = semget(IPC_PRIVATE, SEMAPHORES, 0777)) < 0) {
 		perror("semget_main");
 		exit(EXIT_FAILURE);
 	}

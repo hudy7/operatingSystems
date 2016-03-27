@@ -30,7 +30,7 @@ methane.h
 #define MUTEX_VALUE 1
 #define SC_VALUE 0
 #define SH_VALUE 0
-typedef enem {false, true} bool;
+typedef enum { false, true } bool;
 
 union semun {
   unsigned short *array;

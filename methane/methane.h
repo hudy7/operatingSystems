@@ -12,7 +12,7 @@ methane.h
 #include <sys/errno.h>
 #include <sys/sem.h>
 #include <sys/shm.h>
-#include <types.h>
+#include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/time.h>
 #include <sys/wait.h>

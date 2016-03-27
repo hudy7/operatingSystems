@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
 	semWait(semid, MUTEX);
 
 	fflush(stdout);
-	printf("Carbon atom %d created\n", my_pid);
+	printf("Carbon atom %d created\n", pid);
 	fflush(stdout);
 
 	printBarrier(true, shared->waiting_C, shared->waiting_H);

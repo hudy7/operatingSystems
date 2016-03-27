@@ -131,7 +131,7 @@ int main(int argc, char *argv[]) {
 		/* spawn extra hydrogen atom */
 		if ((retVal = fork()) == 0){
 			hydrogen(semid, shmid);
-		} else if (ret_val < 0) {
+		} else if (retVal < 0) {
 			perror("fork");
 			exit(EXIT_FAILURE);
 		}

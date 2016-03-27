@@ -1,0 +1,405 @@
+Carbon spawn
+Carbon atom 11477 created
+Carbon is at the barrier
+Number of Carbons waiting:  0
+Number of Hydrogens waiting:  0
+Carbon spawn
+Carbon atom 11476 created
+Carbon is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11478 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11474 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11475 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  2
+Hydrogen spawn
+Hydrogen atom 11480 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11481 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11473 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  1
+Carbon spawn
+Carbon atom 11482 created
+Carbon is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  2
+Carbon spawn
+Carbon atom 11483 created
+Carbon is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  2
+Hydrogen spawn
+Hydrogen atom 11485 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  3
+Number of Hydrogens waiting:  2
+Carbon spawn
+Carbon atom 11486 created
+Carbon is at the barrier
+Number of Carbons waiting:  3
+Number of Hydrogens waiting:  3
+Carbon spawn
+Carbon atom 11487 created
+Carbon is at the barrier
+Number of Carbons waiting:  4
+Number of Hydrogens waiting:  3
+Carbon spawn
+Carbon atom 11490 created
+Carbon is at the barrier
+Number of Carbons waiting:  5
+Number of Hydrogens waiting:  3
+Carbon spawn
+Carbon atom 11493 created
+Carbon is at the barrier
+Number of Carbons waiting:  6
+Number of Hydrogens waiting:  3
+Carbon spawn
+Carbon atom 11491 created
+Carbon is at the barrier
+Number of Carbons waiting:  7
+Number of Hydrogens waiting:  3
+Carbon spawn
+Carbon atom 11492 created
+Carbon is at the barrier
+Number of Carbons waiting:  8
+Number of Hydrogens waiting:  3
+Carbon spawn
+Carbon atom 11495 created
+Carbon is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  3
+Hydrogen spawn
+Hydrogen atom 11472 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11496 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  0
+Carbon spawn
+Carbon atom 11489 created
+Carbon is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11479 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11497 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  2
+Carbon spawn
+Carbon atom 11484 created
+Carbon is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  3
+Hydrogen spawn
+Hydrogen atom 11498 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  11
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11494 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11499 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11500 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  2
+Hydrogen spawn
+Hydrogen atom 11488 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  10
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11502 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11503 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11505 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  2
+Hydrogen spawn
+Hydrogen atom 11506 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  9
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11507 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  8
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11504 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  8
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11501 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  8
+Number of Hydrogens waiting:  2
+Hydrogen spawn
+Hydrogen atom 11508 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  8
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11509 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  7
+Number of Hydrogens waiting:  0
+Hydrogen spawn
+Hydrogen atom 11471 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  7
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11510 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  7
+Number of Hydrogens waiting:  2
+Hydrogen spawn
+Hydrogen atom 11511 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  7
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Hydrogen spawn
+Hydrogen atom 11512 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  6
+Number of Hydrogens waiting:  0
+Waiting for process 0 to exit
+Waiting for process 1 to exit
+Waiting for process 2 to exit
+Waiting for process 3 to exit
+Waiting for process 4 to exit
+Waiting for process 5 to exit
+Waiting for process 6 to exit
+Waiting for process 7 to exit
+Waiting for process 8 to exit
+Waiting for process 9 to exit
+Waiting for process 10 to exit
+Waiting for process 11 to exit
+Waiting for process 12 to exit
+Waiting for process 13 to exit
+Waiting for process 14 to exit
+Waiting for process 15 to exit
+Waiting for process 16 to exit
+Waiting for process 17 to exit
+Waiting for process 18 to exit
+Waiting for process 19 to exit
+Waiting for process 20 to exit
+Waiting for process 21 to exit
+Waiting for process 22 to exit
+Waiting for process 23 to exit
+Waiting for process 24 to exit
+Waiting for process 25 to exit
+Waiting for process 26 to exit
+Waiting for process 27 to exit
+Waiting for process 28 to exit
+Waiting for process 29 to exit
+Waiting for process 30 to exit
+Waiting for process 31 to exit
+Waiting for process 32 to exit
+Waiting for process 33 to exit
+Waiting for process 34 to exit
+Waiting for process 35 to exit
+Waiting for process 36 to exit
+Waiting for process 37 to exit
+Waiting for process 38 to exit
+Waiting for process 39 to exit
+Waiting for process 40 to exit
+Waiting for process 41 to exit
+Waiting for process 42 to exit
+Hydrogen spawn
+Hydrogen atom 11519 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  6
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11520 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  6
+Number of Hydrogens waiting:  2
+Waiting for process 43 to exit
+Waiting for process 44 to exit
+Hydrogen spawn
+Hydrogen atom 11521 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  6
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Waiting for process 45 to exit
+Hydrogen spawn
+Hydrogen atom 11518 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  5
+Number of Hydrogens waiting:  0
+Waiting for process 46 to exit
+Hydrogen spawn
+Hydrogen atom 11522 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  5
+Number of Hydrogens waiting:  1
+Waiting for process 47 to exit
+Hydrogen spawn
+Hydrogen atom 11523 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  5
+Number of Hydrogens waiting:  2
+Waiting for process 48 to exit
+Hydrogen spawn
+Hydrogen atom 11524 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  5
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Waiting for process 49 to exit
+Hydrogen spawn
+Hydrogen atom 11525 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  4
+Number of Hydrogens waiting:  0
+Waiting for process 50 to exit
+Hydrogen spawn
+Hydrogen atom 11517 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  4
+Number of Hydrogens waiting:  1
+Hydrogen spawn
+Hydrogen atom 11526 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  4
+Number of Hydrogens waiting:  2
+Waiting for process 51 to exit
+Hydrogen spawn
+Hydrogen atom 11527 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  4
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Waiting for process 52 to exit
+Hydrogen spawn
+Hydrogen atom 11528 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  3
+Number of Hydrogens waiting:  0
+Waiting for process 53 to exit
+Hydrogen spawn
+Hydrogen atom 11513 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  3
+Number of Hydrogens waiting:  1
+Waiting for process 54 to exit
+Hydrogen spawn
+Hydrogen atom 11529 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  3
+Number of Hydrogens waiting:  2
+Waiting for process 55 to exit
+Hydrogen spawn
+Hydrogen atom 11530 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  3
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Waiting for process 56 to exit
+Hydrogen spawn
+Hydrogen atom 11516 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  0
+Waiting for process 57 to exit
+Hydrogen spawn
+Hydrogen atom 11531 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  1
+Waiting for process 58 to exit
+Hydrogen spawn
+Hydrogen atom 11532 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  2
+Waiting for process 59 to exit
+Hydrogen spawn
+Hydrogen atom 11534 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  2
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+Waiting for process 60 to exit
+Hydrogen spawn
+Hydrogen atom 11535 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  0
+Waiting for process 61 to exit
+Waiting for process 62 to exit
+Hydrogen spawn
+Hydrogen atom 11515 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  1
+Waiting for process 63 to exit
+Hydrogen spawn
+Hydrogen atom 11533 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  2
+Waiting for process 64 to exit
+Hydrogen spawn
+Hydrogen atom 11514 created
+Hydrogen is at the barrier
+Number of Carbons waiting:  1
+Number of Hydrogens waiting:  3
+CH4 has crossed barrier! YES METHANE!
+CH4 complete. Cleaning up.
+Exiting!

@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
   srand((unsigned) time(&t));  /* generates random numbers */
 
 	if ((semid = semget(IPC_PRIVATE, SEMAPHORES, 0777)) < 0) {
-		perror("semget_main");
+		perror("MAIN: semget");
 		exit(EXIT_FAILURE);
 	}
 

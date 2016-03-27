@@ -82,6 +82,12 @@ void printBarrier(bool isCarbon, int waiting_C, int waiting_H){
   return;
 }
 
+void printCH4(){
+  fflush(stdout);
+  printf("CH4 has crossed barrier! YES METHANE!");
+  fflush(stdout);
+}
+
 
 void semWait(int semid, int semaphore){
   struct sembuf psembuf;
@@ -95,7 +101,8 @@ void semWait(int semid, int semaphore){
     built just above
   */
   semop(semid, &psembuf, 1);
-};
+  return;
+}
 
 void semSignal(int semid, int semaphore){
   struct sembuf vsembuf;
@@ -109,4 +116,5 @@ void semSignal(int semid, int semaphore){
     built just above
   */
   semop(semid, &vsembuf, 1);
-};
+  return;
+}

@@ -1,39 +1,57 @@
 /*
- * Rusheel Shah
- * rxs649@case.edu
- * 4/11/16
- * EECS 338: Assignment 6
- */
+Nicholas Hudeck
+EECS 338 - Assignment 6
+Sequential CH4 Production Problem
+main.c
+
+simplified assignment 6 to one file
+*/
  
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <sys/errno.h>
 
-#define NUM_TOTAL 25
+#define ATOMS 25
 #define NUM_C 5
 #define NUM_H 20
 
 void carbon(void *arg);
 void hydrogen(void *arg);
 
-//We want everything to be global, since all threads need access to values and only using one process
+
+//shared variables
 int waiting_H = 0;
 int waiting_C = 0;
 int num_methane = 0;
+
+//semaphores
 sem_t sem_h;
 sem_t sem_c;
 sem_t mutex;
 
-//3 semaphores and 3 shared variables
-
 int main(int argc, char **argv){
-	pthread_t threads[NUM_TOTAL];			//initializes a thread array that will store all the hydrogen and carbon threads
-	//initializes semaphores
-	sem_init(&sem_h, 0, (unsigned int) 0);		
-	sem_init(&sem_c, 0, (unsigned int) 0);
-	sem_init(&mutex, 0, (unsigned int) 1);
+	/* initializes a thread array that will store all the hydrogen and carbon threads */
+	pthread_t threads[ATOMS];
+
+	/* initializes  and checks semaphores */
+
+	if((sem_init(&sem_h, 0, (unsigned int) 0) < 0){
+		perror("sem_init");
+		exit(EXIT_FAILURE);
+	}
+
+	if((sem_init(&sem_c, 0, (unsigned int) 0) < 0){
+		perror("sem_init");
+		exit(EXIT_FAILURE);
+	}
+
+	if((sem_init(&mutex, 0, (unsigned int) 1) < 0){
+		perror("sem_init");
+		exit(EXIT_FAILURE);
+	}		
 	
 
 	int i;
@@ -43,12 +61,12 @@ int main(int argc, char **argv){
 		pthread_create(&threads[i], NULL, (void*)&carbon, NULL);	//reference to thread, NULL, function to execute, thread data struct corresponding
 	}
 	//creates 20 hydrogen threads
-	for(i = NUM_C; i < NUM_TOTAL; i++){
+	for(i = NUM_C; i < ATOMS; i++){
 		//hydrogen threads take up indexes 5-24 in the thread array
 		pthread_create(&threads[i], NULL, (void*)&hydrogen, NULL);	//reference to thread, NULL, function to execute, thread data struct corresponding
 	}
 	//exits each thread
-	for(i = 0; i < NUM_TOTAL; ++i){
+	for(i = 0; i < ATOMS; ++i){
 		pthread_join(threads[i], NULL);
 	}
 	//destroys semaphores

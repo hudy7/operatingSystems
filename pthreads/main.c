@@ -114,9 +114,7 @@ void carbon(void *arg){
 	}
 	
 	fflush(stdout);
-	printf("Carbon at the barrier.\n 
-		    Carbon waiting: %d.\n 
-		    Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
+	printf("Carbon at the barrier.\n Carbon waiting: %d.\n Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
 	fflush(stdout);
 
 
@@ -153,9 +151,7 @@ void hydrogen(void *arg){
 	
 
 	fflush(stdout);
-	printf("Hydrogen at the barrier.\n 
-		    Carbon waiting: %d.\n 
-		    Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
+	printf("Hydrogen at the barrier.\n Carbon waiting: %d.\n Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
 	fflush(stdout);
 	
 	fflush(stdout);

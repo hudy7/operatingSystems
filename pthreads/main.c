@@ -86,23 +86,19 @@ int main(int argc, char **argv){
 		exit(EXIT_FAILURE);
 	}
 
-	printf("pst sem_h cloase"); 
-
 	if(sem_close(&sem_c) != 0){
 		perror("sem_close");
 		exit(EXIT_FAILURE);
 	}
 
-	printf("post = sem_c close");
 
 	if(sem_close(&mutex) != 0){
 		perror("sem_close");
 		exit(EXIT_FAILURE);
 	}
 
-	printf("here");
 
-	//program complete
+	//should never reach here but program complete
 	exit(EXIT_SUCCESS);
 }
 
@@ -157,6 +153,7 @@ void carbon(void *arg){
 	
 	else{ // wait for hydrogen
 		waiting_C = waiting_C + 1;
+
 		if(sem_post(&mutex) != 0){
 			perror("sem_post");
 			exit(EXIT_FAILURE);
@@ -183,7 +180,7 @@ void hydrogen(void *arg){
 	printf("Hydrogen at the barrier.\nCarbon waiting: %d.\nHydrogen waiting: %d\n\n", waiting_C, waiting_H);
 	fflush(stdout);
 	
-	fflush(stdout);
+	
 	/* if there are >=3 hydrogens and 1 or more carbon at barrier, enter */
 	if(waiting_H >= 3 && waiting_C >= 1){
 		if(sem_post(&sem_h) != 0){
@@ -220,10 +217,12 @@ void hydrogen(void *arg){
 	
 	else{ //wait for hydrogens and carbons
 		waiting_H = waiting_H + 1;
+		
 		if(sem_post(&mutex) != 0){
 			perror("sem_post");
 			exit(EXIT_FAILURE);
 		}
+
 		if(sem_post(&sem_h) != 0){
 			perror("sem_post");
 			exit(EXIT_FAILURE);

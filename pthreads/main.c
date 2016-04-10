@@ -37,7 +37,6 @@ int main(int argc, char **argv){
 	pthread_t threads[ATOMS];
 
 	/* initializes  and checks semaphores */
-
 	if((sem_init(&sem_h, 0, (unsigned int) 0)) < 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
@@ -55,17 +54,24 @@ int main(int argc, char **argv){
 	
 
 	int i;
-	//creates 5 carbon threads
+	
+	/* creates 5 carbon threads */
 	for(i = 0; i < NUM_C; i++){
-		//carbon threads take up indexes 0-4 in the thread array
-		pthread_create(&threads[i], NULL, (void*)&carbon, NULL);	//reference to thread, NULL, function to execute, thread data struct corresponding
+		if(pthread_create(&threads[i], NULL, (void*)&carbon, NULL) < 0){
+			perror("pthread_create");
+			exit(EXIT_FAILURE);
+		}	
 	}
-	//creates 20 hydrogen threads
+
+	/* creates 20 hydrogen threads */
 	for(i = NUM_C; i < ATOMS; i++){
-		//hydrogen threads take up indexes 5-24 in the thread array
-		pthread_create(&threads[i], NULL, (void*)&hydrogen, NULL);	//reference to thread, NULL, function to execute, thread data struct corresponding
+		if(pthread_create(&threads[i], NULL, (void*)&hydrogen, NULL) < 0){
+			perror("pthread_create");
+			exit(EXIT_FAILURE);
+		}
 	}
-	//exits each thread
+
+	/* exiting the threads */
 	for(i = 0; i < ATOMS; ++i){
 		pthread_join(threads[i], NULL);
 	}

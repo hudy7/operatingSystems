@@ -71,31 +71,56 @@ int main(int argc, char **argv){
 		}
 	}
 
-	/* exiting the threads */
+	/* exiting the threads with error checking */
 	for(i = 0; i < ATOMS; ++i){
-		pthread_join(threads[i], NULL);
+		if(pthread_join(threads[i], NULL) != 0){
+			perror("pthread_join");
+			exit(EXIT_FAILURE);
+		}
 	}
-	//destroys semaphores
-	sem_close(&sem_h);
-	sem_close(&sem_c);
-	sem_close(&mutex);
 
+	/* destroy semaphores with error checking */
+
+	if(sem_close(&sem_h) != 0){
+		perror("sem_close");
+		exit(EXIT_FAILURE);
+	}
+
+
+	if(sem_close(&sem_c) != 0){
+		perror("sem_close");
+		exit(EXIT_FAILURE);
+	}
+
+
+	if(sem_close(&mutex) != 0){
+		perror("sem_close");
+		exit(EXIT_FAILURE);
+	}
+
+	//program complete
 	exit(EXIT_SUCCESS);
 }
 
 
-//thread functions
-
-//carbon function
 void carbon(void *arg){
 	fflush(stdout);
 	printf("Carbon is created!\n");
 	fflush(stdout);
-	sem_wait(&mutex);
+	
+	if(sem_wait(&mutex) != 0){
+		perror("sem_wait");
+		exit(EXIT_FAILURE);
+	}
+	
 	fflush(stdout);
-	printf("Pre-Barrier - Carbon at the barrier! The number of other carbons waiting at the barrier are %d, the number of hydrogens waiting at the barrier are %d\n", waiting_C, waiting_H);
+	printf("Carbon at the barrier.\n 
+		    Carbon waiting: %d.\n 
+		    Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
 	fflush(stdout);
-	//if there are 4 or more hydrogens at the barrier, enter the barrier
+
+
+	/* if > 4 hyrdogens at barrier, enter */
 	if(waiting_H >= 4){
 		sem_post(&sem_h);
 		sem_post(&sem_h);
@@ -120,9 +145,19 @@ void hydrogen(void *arg){
 	fflush(stdout);
 	printf("Hydrogen is created!\n");
 	fflush(stdout);
-	sem_wait(&mutex);
+	
+	if(sem_wait(&mutex) != 0){
+		perror("sem_wait");
+		exit(EXIT_FAILURE);
+	}
+	
+
 	fflush(stdout);
-	printf("Pre-Barrier - Hydrogen at the barrier! The number of carbons waiting at the barrier are %d, the number of other hydrogens waiting at the barrier are %d\n", waiting_C, waiting_H);
+	printf("Hydrogen at the barrier.\n 
+		    Carbon waiting: %d.\n 
+		    Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
+	fflush(stdout);
+	
 	fflush(stdout);
 	//if there are 3 or more hydrogens and 1 or more carbon at the barrier, enter the barrier
 	if(waiting_H >= 3 && waiting_C >= 1){

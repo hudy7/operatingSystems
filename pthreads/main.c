@@ -86,17 +86,21 @@ int main(int argc, char **argv){
 		exit(EXIT_FAILURE);
 	}
 
+	printf("pst sem_h cloase"); 
 
 	if(sem_close(&sem_c) != 0){
 		perror("sem_close");
 		exit(EXIT_FAILURE);
 	}
 
+	printf("post = sem_c close");
 
 	if(sem_close(&mutex) != 0){
 		perror("sem_close");
 		exit(EXIT_FAILURE);
 	}
+
+	printf("here");
 
 	//program complete
 	exit(EXIT_SUCCESS);

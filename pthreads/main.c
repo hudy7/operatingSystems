@@ -25,7 +25,7 @@ void hydrogen(void *arg);
 //shared variables
 int waiting_H = 0;
 int waiting_C = 0;
-int num_methane = 0;
+int methane_count = 0;
 
 //semaphores
 sem_t sem_h;
@@ -105,7 +105,7 @@ int main(int argc, char **argv){
 
 void carbon(void *arg){
 	fflush(stdout);
-	printf("Carbon is created!\n");
+	printf("Carbon spawn!\n");
 	fflush(stdout);
 	
 	if(sem_wait(&mutex) != 0){
@@ -114,34 +114,59 @@ void carbon(void *arg){
 	}
 	
 	fflush(stdout);
-	printf("Carbon at the barrier.\n Carbon waiting: %d.\n Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
+	printf("Carbon at the barrier.\nCarbon waiting: %d.\nHydrogen waiting: %d\n\n", waiting_C, waiting_H);
 	fflush(stdout);
 
 
 	/* if > 4 hyrdogens at barrier, enter */
 	if(waiting_H >= 4){
-		sem_post(&sem_h);
-		sem_post(&sem_h);
-		sem_post(&sem_h);
-		sem_post(&sem_h);
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+
 		waiting_H = waiting_H - 4;
-		num_methane = num_methane + 1;
+		
+		methane_count =	methane_count + 1;
+		
 		fflush(stdout);
-		printf("Post-Barrier - Molecule formed: the number of methanes is now %d\n", num_methane);
+		printf("Methane Formed!\nNumber of methanes is now %d\n",	methane_count);
 		fflush(stdout);
-		sem_post(&mutex);
+		
+		if(sem_post(&mutex) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
 	}
-	//else wait for more hydrogens
-	else{
+	
+	else{ // wait for hydrogen
 		waiting_C = waiting_C + 1;
-		sem_post(&mutex);
-		sem_wait(&sem_c);
+		if(sem_post(&mutex) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_c) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
 	}		
 }
 //hydrogen function
 void hydrogen(void *arg){
 	fflush(stdout);
-	printf("Hydrogen is created!\n");
+	printf("Hydrogen spawn!\n");
 	fflush(stdout);
 	
 	if(sem_wait(&mutex) != 0){
@@ -151,29 +176,54 @@ void hydrogen(void *arg){
 	
 
 	fflush(stdout);
-	printf("Hydrogen at the barrier.\n Carbon waiting: %d.\n Hydrogen waiting: %d\n\n", waiting_C, waiting_H);
+	printf("Hydrogen at the barrier.\nCarbon waiting: %d.\nHydrogen waiting: %d\n\n", waiting_C, waiting_H);
 	fflush(stdout);
 	
 	fflush(stdout);
-	//if there are 3 or more hydrogens and 1 or more carbon at the barrier, enter the barrier
+	/* if there are >=3 hydrogens and 1 or more carbon at barrier, enter */
 	if(waiting_H >= 3 && waiting_C >= 1){
-		sem_post(&sem_h);
-		sem_post(&sem_h);
-		sem_post(&sem_h);
-		sem_post(&sem_c);
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_c) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		/* update counts */
 		waiting_H = waiting_H - 3;
 		waiting_C = waiting_C - 1;
-		num_methane = num_methane + 1;
+		methane_count =	methane_count + 1;
+
 		fflush(stdout);
-		printf("Post-Barrier - Molecule formed: the number of methanes is now %d\n", num_methane);
+		printf("Methane Formed!\nNumber of methanes is now %d\n",	methane_count);
 		fflush(stdout);
-		sem_post(&mutex);
+
+		if(sem_post(&mutex) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		
 	}
-	//else wait for more hydrogens and carbons
-	else{
+	
+	else{ //wait for hydrogens and carbons
 		waiting_H = waiting_H + 1;
-		sem_post(&mutex);
-		sem_wait(&sem_h);
+		if(sem_post(&mutex) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
+		if(sem_post(&sem_h) != 0){
+			perror("sem_post");
+			exit(EXIT_FAILURE);
+		}
 	}		
 }
 

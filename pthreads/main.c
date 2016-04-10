@@ -37,17 +37,17 @@ int main(int argc, char **argv){
 	pthread_t threads[ATOMS];
 
 	/* initializes  and checks semaphores */
-	if((sem_init(&sem_h, 0, (unsigned int) 0)) < 0){
+	if((sem_init(&sem_h, 0, (unsigned int) 0))!= 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
 	}
 
-	if((sem_init(&sem_c, 0, (unsigned int) 0)) < 0){
+	if((sem_init(&sem_c, 0, (unsigned int) 0)) != 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
 	}
 
-	if((sem_init(&mutex, 0, (unsigned int) 1)) < 0){
+	if((sem_init(&mutex, 0, (unsigned int) 1)) != 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
 	}		
@@ -57,7 +57,7 @@ int main(int argc, char **argv){
 	
 	/* creates 5 carbon threads */
 	for(i = 0; i < NUM_C; i++){
-		if(pthread_create(&threads[i], NULL, (void*)&carbon, NULL) < 0){
+		if(pthread_create(&threads[i], NULL, (void*)&carbon, NULL) != 0){
 			perror("pthread_create");
 			exit(EXIT_FAILURE);
 		}	
@@ -65,7 +65,7 @@ int main(int argc, char **argv){
 
 	/* creates 20 hydrogen threads */
 	for(i = NUM_C; i < ATOMS; i++){
-		if(pthread_create(&threads[i], NULL, (void*)&hydrogen, NULL) < 0){
+		if(pthread_create(&threads[i], NULL, (void*)&hydrogen, NULL) != 0){
 			perror("pthread_create");
 			exit(EXIT_FAILURE);
 		}

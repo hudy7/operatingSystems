@@ -80,7 +80,7 @@ int main(int argc, char **argv){
 	}
 
 	/* destroy semaphores with error checking */
-
+/*
 	if(sem_close(&sem_h) != 0){
 		perror("sem_close");
 		exit(EXIT_FAILURE);
@@ -96,7 +96,7 @@ int main(int argc, char **argv){
 		perror("sem_close");
 		exit(EXIT_FAILURE);
 	}
-
+*/
 
 	//should never reach here but program complete
 	exit(EXIT_SUCCESS);

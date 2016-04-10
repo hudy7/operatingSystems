@@ -1,0 +1,135 @@
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 0
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 1
+
+Carbon spawn!
+Carbon at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 2
+
+Carbon spawn!
+Carbon at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 2
+
+Carbon spawn!
+Carbon at the barrier.
+Carbon waiting: 2.
+Hydrogen waiting: 2
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 3.
+Hydrogen waiting: 2
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 3.
+Hydrogen waiting: 3
+
+Methane Formed!
+Number of methanes is now 1
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 2.
+Hydrogen waiting: 0
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 2.
+Hydrogen waiting: 1
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 2.
+Hydrogen waiting: 2
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 2.
+Hydrogen waiting: 3
+
+Methane Formed!
+Number of methanes is now 2
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 0
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 1
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 2
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 3
+
+Methane Formed!
+Number of methanes is now 3
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 0
+
+Carbon spawn!
+Carbon at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 1
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 1
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 2
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 1.
+Hydrogen waiting: 3
+
+Methane Formed!
+Number of methanes is now 4
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 0
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 1
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 2
+
+Hydrogen spawn!
+Hydrogen at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 3
+
+Carbon spawn!
+Carbon at the barrier.
+Carbon waiting: 0.
+Hydrogen waiting: 4
+
+Methane Formed!
+Number of methanes is now 5

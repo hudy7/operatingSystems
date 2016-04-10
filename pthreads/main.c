@@ -38,17 +38,17 @@ int main(int argc, char **argv){
 
 	/* initializes  and checks semaphores */
 
-	if((sem_init(&sem_h, 0, (unsigned int) 0) < 0){
+	if((sem_init(&sem_h, 0, (unsigned int) 0)) < 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
 	}
 
-	if((sem_init(&sem_c, 0, (unsigned int) 0) < 0){
+	if((sem_init(&sem_c, 0, (unsigned int) 0)) < 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
 	}
 
-	if((sem_init(&mutex, 0, (unsigned int) 1) < 0){
+	if((sem_init(&mutex, 0, (unsigned int) 1)) < 0){
 		perror("sem_init");
 		exit(EXIT_FAILURE);
 	}		

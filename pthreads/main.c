@@ -80,23 +80,23 @@ int main(int argc, char **argv){
 	}
 
 	/* destroy semaphores with error checking */
-/*
-	if(sem_close(&sem_h) != 0){
-		perror("sem_close");
+
+	if(sem_destroy(&sem_h) != 0){
+		perror("sem_destroy");
 		exit(EXIT_FAILURE);
 	}
 
-	if(sem_close(&sem_c) != 0){
-		perror("sem_close");
+	if(sem_destroy(&sem_c) != 0){
+		perror("sem_destroy");
 		exit(EXIT_FAILURE);
 	}
 
 
-	if(sem_close(&mutex) != 0){
-		perror("sem_close");
+	if(sem_destroy(&mutex) != 0){
+		perror("sem_destroy");
 		exit(EXIT_FAILURE);
 	}
-*/
+
 
 	//should never reach here but program complete
 	exit(EXIT_SUCCESS);

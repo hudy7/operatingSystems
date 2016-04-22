@@ -1,10 +1,8 @@
-
-all: east.c west.c main.c bridge.h
-	gcc -Wno-cpp -std=c99 -o east east.c
-	gcc -Wno-cpp -std=c99 -o west west.c
-	gcc -Wno-cpp -std=c99 -g -o main main.c
-	chmod 755 main
+ll:
+	gcc -o server server.c 
+	gcc -o client client.c 
 
 clean:
-	-rm east west main
-	-rm -r main.dSYM
+	-rm server client mailbox_svc.c mailbox_clnt.c test.h
+	-rm *~
+

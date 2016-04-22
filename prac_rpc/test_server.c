@@ -6,14 +6,10 @@
 
 #include "test.h"
 
-int *
-test_function_1_svc(int *argp, struct svc_req *rqstp)
-{
-	static int  result;
+int *test_function_1_svc(int *input, struct svc_req *request) {
+    int response = *input + 1;
 
-	/*
-	 * insert server code here
-	 */
+    printf("received %d, responding with %d\n", *input, response);
 
-	return &result;
+    return(&response);
 }

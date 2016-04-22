@@ -7,41 +7,17 @@
 #include "test.h"
 
 
-void
-test_1(char *host)
-{
-	CLIENT *clnt;
-	int  *result_1;
-	int  test_function_1_arg;
+int main(int argc, char **argv) {
+    CLIENT *client;
 
-#ifndef	DEBUG
-	clnt = clnt_create (host, TEST, TEST_VERSION, "udp");
-	if (clnt == NULL) {
-		clnt_pcreateerror (host);
-		exit (1);
-	}
-#endif	/* DEBUG */
+    char *server_hostname = argv[1];
 
-	result_1 = test_function_1(&test_function_1_arg, clnt);
-	if (result_1 == (int *) NULL) {
-		clnt_perror (clnt, "call failed");
-	}
-#ifndef	DEBUG
-	clnt_destroy (clnt);
-#endif	 /* DEBUG */
-}
+    client = clnt_create(server_hostname, TEST, TEST_VERSION, "udp");
 
+    int number_to_send = atoi(argv[2]);
 
-int
-main (int argc, char *argv[])
-{
-	char *host;
+    int *result = test_function_1(&number_to_send, client);
 
-	if (argc < 2) {
-		printf ("usage: %s server_host\n", argv[0]);
-		exit (1);
-	}
-	host = argv[1];
-	test_1 (host);
-exit (0);
+    printf("received result %d\n", *result);
+    clnt_destroy(client);
 }

@@ -140,7 +140,8 @@ void display_prg_1(char *host){
 	for (i = 0; i < 5; i++) {
         put_1_arg.id = host_id;
         char *mess = get_random_string();
-        if (strcpy(put_1_arg.message, mess) == NULL){
+        
+        if (strcpy(put_1_arg.message, "message") == NULL){
         	perror("strcopy error");
         }
 

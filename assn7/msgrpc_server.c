@@ -5,27 +5,88 @@
  */
 
 #include "msgrpc.h"
+#include <time.h>
 
-int *
-get_1_svc(int *argp, struct svc_req *rqstp)
-{
-	static int  result;
 
-	/*
-	 * insert server code here
-	 */
+struct data msgs[15]; // allocate space to put msgs on client 
+char currTime[30]; //current time string stored as char array
+// attempting to store in an array of msgs since nothing is working will be set as occurs
+int messages[15] = {-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2};
+//^^ this allows us to make sure we are not getting messages from the same client
+
+
+int currentMessage = 0; // keeping track of current message
+int currentClient = 0; // keeping track of which client we're at
+
+//since we're only dealing with 3 clients, gonna store just 3 possible
+int clients[3];
+
+
+void getTime(){
+	// getting the time -- move this to a method call
+	time_t rawtime;
+	struct tm *timeinfo;
+
+	// avoid null reference
+	if (currTime == NULL) {
+		currTime[0] = 0;
+	}
+
+	// get the current time
+	time (&rawtime);
+	if (rawtime == ((time_t)-1)) {
+		perror("rawtime error");
+		currTime[0] = 0;
+		return;
+	}
+
+	// convert time to local time
+	timeinfo = localtime (&rawtime);
+    if (timeinfo == NULL) {
+        perror("local time error");
+        curr_time[0] = 0;
+        return;
+    }
+}
+
+
+int *get_1_svc(int *argp, struct svc_req *rqstp){
+	static int result = -1; //initially an error
+	getTime();
+	
+	fflush(stdout);
+	printf("%s Server received GET request from client %d.\n", currTime, *argp);
+    fflush(stdout);
+
+    int client_id = *argp;
+	int i;
+	for(i = 0; i < 15; i++){
+		if(client_id >= 0 && client_id <=2){
+			*result = 0; // status success!
+
+			return &result;
+		}
+	}  
 
 	return &result;
 }
 
-int *
-put_1_svc(struct data *argp, struct svc_req *rqstp)
-{
-	static int  result;
+int *put_1_svc(struct data *argp, struct svc_req *rqstp){
+	static int result = -1;
+	getTime();
+	fflush(stdout);
+	printf("%s Server received PUT request from client %d.\n", currTime, argp->id);
+    fflush(stdout);
 
-	/*
-	 * insert server code here
-	 */
+    int client_id = argp->id; // initially out of bounds aka error
+
+    if(strcopy(messages[currentMessage].msg, argp->msg) == NULL){
+    	perror("Message on to server error");
+    }
+    else{ // success
+    	msgs[currentMessage].id = argp->id;
+    	*result = 0;
+    }
 
 	return &result;
 }

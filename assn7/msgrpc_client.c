@@ -5,16 +5,47 @@
  */
 
 #include "msgrpc.h"
+#include <time.h>
 
 
-void
-display_prg_1(char *host)
-{
+
+char currentTime[30]; //current time string stored as char array
+
+void getTime(){
+	// getting the time -- move this to a method call
+	time_t rawtime;
+	struct tm *timeinfo;
+
+	// avoid null reference
+	if (currTime == NULL) {
+		currTime[0] = 0;
+	}
+
+	// get the current time
+	time (&rawtime);
+	if (rawtime == ((time_t)-1)) {
+		perror("rawtime error");
+		currTime[0] = 0;
+		return;
+	}
+
+	// convert time to local time
+	timeinfo = localtime (&rawtime);
+    if (timeinfo == NULL) {
+        perror("local time error");
+        curr_time[0] = 0;
+        return;
+    }
+}
+
+
+void display_prg_1(char *host){
 	CLIENT *clnt;
 	int  *result_1;
 	int  get_1_arg;
 	int  *result_2;
 	struct data  put_1_arg;
+	int host_id = 3;
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, DISPLAY_PRG, DISPLAY_VER, "udp");
@@ -24,23 +55,80 @@ display_prg_1(char *host)
 	}
 #endif	/* DEBUG */
 
-	result_1 = get_1(&get_1_arg, clnt);
-	if (result_1 == (int *) NULL) {
-		clnt_perror (clnt, "call failed");
+int i;
+for(i = 0; i < 5; i++){
+	put_1_arg.id = 2 //set the host id
+	char stringToPass = "Here is a message";
+	if(strcopy(put_1_arg.msg, stringToPass) == NULL){
+		perror("strcopy err");
 	}
+
+	getTime();
+
+    fflush(stdout);
+    printf ("%s Client %d PUT request.\n", currTime, host_id);
+	fflush(stdout);
+
 	result_2 = put_1(&put_1_arg, clnt);
 	if (result_2 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
+
+
+	//  return status per project requirements, 
+	int status = *result_2;
+	fflush(stdout);
+	if (status == 0) {
+        printf ("%s Success response from the server.\n", currTime);
+    } else {
+        printf("%s Failure response from the server.\n", currTime);
+    }
+    fflush(stdout);
+
+
+    // sleep for 1 second per project requirements
+    sleep(1);
+}
+
+// sleep for 5 seconds per project requirements
+sleep(5);
+
+
+
+// client GETs from the server 10 times
+int j;
+for(j = 0; j < 10; j++){
+	get_1_arg = host_id; // set host id
+	getTime();
+	fflush(stdout);
+	printf("%s Client %d has sent a GET request.\n", currTime, host_id);
+	fflush(stdout);
+
+	result_1 = get_1(&get_1_arg, clnt);
+	if (result_1 == (int *) NULL) {
+		clnt_perror (clnt, "call failed");
+	}
+
+	int status2 = *result_2;
+	fflush(stdout);
+	if (status2 == 0) {
+        printf ("%s Success response from the server.\n", currTime);
+    } else {
+        printf("%s Failure response from the server.\n", currTime);
+    }
+    fflush(stdout);
+
+    sleep(1);
+}
+
+	
 #ifndef	DEBUG
 	clnt_destroy (clnt);
 #endif	 /* DEBUG */
 }
 
 
-int
-main (int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	char *host;
 
 	if (argc < 2) {

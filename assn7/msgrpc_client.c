@@ -121,8 +121,8 @@ void display_prg_1(char *host){
 int i;
 for(i = 0; i < 5; i++){
 	put_1_arg.id = 2; //set the host id
-	char *stringToPass = get_random_string();
-	if(strcopy(put_1_arg.msg, stringToPass) == NULL){
+	char *random_str = get_random_string();
+	if(strcopy(put_1_arg.msg, random_str) == NULL){
 		perror("strcopy err");
 	}
 

@@ -37,34 +37,26 @@ void getTime() {
         currentTime[0] = 0;
         return;
     }
-
+/*
     // gets time a readable manner
     asctime_r(timeinfo, currentTime);
 	if (currentTime == NULL) {
 		perror("readable time error");
 		currentTime[0] = 0;
 		return;
-	}
-/*
-	// remove newline from end, just put terminator
-	int new_line = strlen(currentTime) - 1;
-	if (currentTime[new_line] == '\n') {
-		currentTime[new_line] = '\0';
 	}*/
 }
 
-int *
-get_1_svc(int *argp, struct svc_req *rqstp)
-{
-	// initially, store error result
+int * get_1_svc(int *argp, struct svc_req *rqstp){
+	/* initially sets the result as an error */
 	int *result = (int *)malloc(sizeof(int));
-	if (result == NULL) {
-		perror("result malloc failed...");
-		int n;
-		result = &n;
+	if (result == NULL) { //unneccessary check I think but just to be safe
+		perror("malloc error");
+		int x;
+		result = &x;
 	}
     *result = -1;
-	// set the most updated time for the global time array
+	
     getTime();
 	printf("[%s] Server received a GET request from client %d.\n", currentTime, *argp);
     fflush(stdout);

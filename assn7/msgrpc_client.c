@@ -58,7 +58,7 @@ void display_prg_1(char *host){
 int i;
 for(i = 0; i < 5; i++){
 	put_1_arg.id = 2; //set the host id
-	char stringToPass = "Here is a message";
+	char *stringToPass = "Here is a message";
 	if(strcopy(put_1_arg.msg, stringToPass) == NULL){
 		perror("strcopy err");
 	}

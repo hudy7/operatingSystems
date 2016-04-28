@@ -84,9 +84,6 @@ void display_prg_1(char *host){
         	perror("strcopy error");
         }
 
-        free(mess);
-
-
         getTime();
         fflush(stdout);
 	    printf ("Current time: %s | CLIENT #: %d PUT request\n", currentTime, host_id);

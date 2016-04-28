@@ -137,7 +137,7 @@ display_prg_1(char *host)
 	int  *result_1;
 	int  get_1_arg;
 	int  *result_2;
-	struct client_data  put_1_arg;
+	struct data put_1_arg;
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, DISPLAY_PRG, DISPLAY_VER, "udp");

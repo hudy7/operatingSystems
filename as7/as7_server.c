@@ -17,7 +17,7 @@ int is_initialized = 0;
 char curr_time[26];
 
 // allocate space for each of 3 clients to put 5 messages on the server
-struct client_data client_msgs[MSG_LIMIT];
+struct data client_msgs[MSG_LIMIT];
 
 // initialize all client msg ids to -1, incrementally change based on messages put in fcfs order
 int client_msg_ids[15] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
@@ -127,7 +127,7 @@ get_1_svc(int *argp, struct svc_req *rqstp)
 }
 
 int *
-put_1_svc(struct client_data *argp, struct svc_req *rqstp)
+put_1_svc(struct data *argp, struct svc_req *rqstp)
 {
 	// initialize result in memory to error status
 	int *result = (int *)malloc(sizeof(int));

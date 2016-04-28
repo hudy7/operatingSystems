@@ -44,7 +44,7 @@ void getTime(){
 	timeinfo = localtime (&rawtime);
     if (timeinfo == NULL) {
         perror("local time error");
-        curr_time[0] = 0;
+        currentTime[0] = 0;
         return;
     }
 }
@@ -58,8 +58,21 @@ int *get_1_svc(int *argp, struct svc_req *rqstp){
 	printf("%s Server received GET request from client %d.\n", currentTime, *argp);
     fflush(stdout);
 
-    int client_id = *argp;
+    int client_id = -1;
+	int actual = *argp;
+	//work around to get the client into array... hacky
 	int i;
+	for(i = 0; i < 3; i++){
+		if(clients[i] = actual){
+			client_id = i;
+		}
+	}
+
+
+
+
+
+
 	for(i = 0; i < 15; i++){
 		if(client_id >= 0 && client_id <=2){
 			*result = 0; // status success!

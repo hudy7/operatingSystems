@@ -39,13 +39,76 @@ void getTime(){
 }
 
 
+// uses the fortune program to generate a random string, returns a pointer to that string
+char *get_random_string(){
+    FILE *fp;
+
+    // variables for creating random string
+    char *random_str = NULL;
+    char *temp = NULL;
+
+    // use a temporary buffer to incrementally gather results
+    char buf[100];
+
+    // maintain size variables for dynamically adjusting the string size
+    unsigned int size = 1;
+    unsigned int str_length;
+
+    // call fortune to generate a real random string
+    fp = popen("fortune", "r");
+
+    // error-check fortune teller response
+    if (fp == NULL) {
+        perror("Error running fortune to generate random string...");
+	    fflush(stderr);
+	    if (pclose(fp) == -1){
+	        perror("Error closing fortune process...");
+	        fflush(stderr);
+	    }
+	    return "error generating random string...";
+    }
+
+    // attain your fortune by writing all string characters to random_str incrementally
+    while (fgets(buf, sizeof(buf), fp) != NULL) {
+    	// get the current buf size
+    	str_length = strlen(buf);
+    	// dynamically reallocate the random string with a new size
+        temp = realloc(random_str, size + str_length);
+        // error-check reallocation
+    	if (temp == NULL) {
+        	perror("temporary random string memory allocation failed...");
+            return "";
+        } else {
+        	// set the random string on success
+        	random_str = temp;
+        }
+    	// copy the buffer to the random string
+        if (strcpy(random_str + size - 1, buf) == NULL){
+        	perror("error copying random string...");
+        }
+        // increase the size variable by the added string length
+        size += str_length;
+    }
+
+    // error-check closing fortune process
+	if (pclose(fp) == -1){
+	    perror("Error closing fortune process...");
+	    return "error closing fortune process...";
+	}
+    return random_str;
+}
+
+
+
+
+
 void display_prg_1(char *host){
 	CLIENT *clnt;
 	int  *result_1;
 	int  get_1_arg;
 	int  *result_2;
 	struct data  put_1_arg;
-	int host_id = 3;
+	int host_id = (int)(rand() % 3);
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, DISPLAY_PRG, DISPLAY_VER, "udp");
@@ -58,7 +121,7 @@ void display_prg_1(char *host){
 int i;
 for(i = 0; i < 5; i++){
 	put_1_arg.id = 2; //set the host id
-	char *stringToPass = "Here is a message";
+	char *stringToPass = get_random_string();
 	if(strcopy(put_1_arg.msg, stringToPass) == NULL){
 		perror("strcopy err");
 	}

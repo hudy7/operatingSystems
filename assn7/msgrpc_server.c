@@ -98,7 +98,7 @@ int *put_1_svc(struct data *argp, struct svc_req *rqstp){
     }
     else{ // success
     	msgs[currentMessage].id = argp->id;
-    	*result = 0;
+    	result = 0;
     }
 
 	return &result;

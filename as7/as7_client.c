@@ -14,61 +14,52 @@
 // store the current time in a global array of 26 chars
 char curr_time[26];
 
-// sets the current time and date to the "curr_time" char buffer
-void set_time() {
-	time_t rawtime;
-	struct tm * timeinfo;
-
-	// reinitialize curr_time buff if it is null
-	if (curr_time == NULL) {
-		curr_time[0] = 0;
-	}
-
-	// get the current time in ms
-	time (&rawtime);
-	if (rawtime == ((time_t)-1)) {
-		perror("error generating time information...");
-		curr_time[0] = 0;
-		return;
-	}
-
-	// convert time to local time
-	timeinfo = localtime (&rawtime);
-    if (timeinfo == NULL) {
-        perror("error converting time to local time...");
-        curr_time[0] = 0;
+/* get the current time, mostly found on stack overflow */
+void getTime() {
+    time_t rawtime;
+    struct tm * timeinfo;
+    if (currentTime == NULL) {
+        currentTime[0] = 0;
+    }
+    //current time in milliseconds
+    time (&rawtime);
+    if (rawtime == ((time_t)-1)) {
+        perror("rawtime error");
+        currentTime[0] = 0;
         return;
     }
 
-    // convert time to asctime
-    asctime_r(timeinfo, curr_time);
-	if (curr_time == NULL) {
-		perror("error converting time to asc time...");
-		curr_time[0] = 0;
-		return;
-	}
-
-	// remove newline from end, just put terminator
-	int new_line = strlen(curr_time) - 1;
-	if (curr_time[new_line] == '\n') {
-		curr_time[new_line] = '\0';
-	}
+    // gets in local time
+    timeinfo = localtime (&rawtime);
+    if (timeinfo == NULL) {
+        perror("local time error");
+        currentTime[0] = 0;
+        return;
+    }
+    // gets time a readable manner
+    asctime_r(timeinfo, currentTime);
+    if (currentTime == NULL) {
+        perror("readable time error");
+        currentTime[0] = 0;
+        return;
+    }
 }
 
-// prints the response status from the server given the int code, 0 is success
-void print_status(int status) {
-	set_time();
-    // print success or error message
+// print success on 0 as per requirements
+void printSuccess(int s) {
+	getTime();
+
+    fflush(stdout);
     if (status == 0) {
-        printf ("[%s] Success response from server.\n", curr_time);
+        printf ("Current time: %s | SUCCESS from SERVER\n", currentTime);
     } else {
-        printf("[%s] Failure response from server.\n", curr_time);
+        printf("Current time: %s | SUCCESS from SERVER\n", currentTime);
     }
     fflush(stdout);
 }
 
 // uses the fortune program to generate a random string, returns a pointer to that string
-char *get_random_string(){
+/*char *get_random_string(){
     FILE *fp;
 
     // variables for creating random string
@@ -125,14 +116,11 @@ char *get_random_string(){
 	}
     return random_str;
 }
+*/
 
-void
-display_prg_1(char *host)
-{
+void display_prg_1(char *host){
 	CLIENT *clnt;
-	// seed random with null
 	srand(time(NULL));
-	// get random number between 0 and 100
 	int host_id = (int)(rand() % (100 + 1 - 0) + 0);
 	int  *result_1;
 	int  get_1_arg;
@@ -148,25 +136,23 @@ display_prg_1(char *host)
 #endif	/* DEBUG */
 
 	int i;
-	// client puts random message to server NUM_PUTS times
-	for (i = 0; i < NUM_PUTS; i++) {
-	    // set host id in message
+	//put messages 5 times per project requirements
+	for (i = 0; i < 5; i++) {
         put_1_arg.id = host_id;
-		// generate and set random string for message
-        char *random_str = get_random_string();
-        if (strcpy(put_1_arg.message, random_str) == NULL){
-        	perror("error copying put message...");
+        char *mess = "message";
+        if (strcpy(put_1_arg.message, mess) == NULL){
+        	perror("strcopy error");
         }
-        // free the string pointer
-        free(random_str);
-        // set global time
-        set_time();
 
-        // print put request message
-	    printf ("[%s] Client %d sent a PUT request.\n", curr_time, host_id);
+        free(mess);
+
+
+        getTime();
+        fflush(stdout);
+	    printf ("Current time: %s | CLIENT #: %d PUT request\n", currentTime, host_id);
 	    fflush(stdout);
 
-        // put generated message with id onto server
+        // put message with id on server
 		result_2 = put_1(&put_1_arg, clnt);
 		// signal error if occurs
 	    if (result_2 == (int *) NULL) {
@@ -174,36 +160,33 @@ display_prg_1(char *host)
 	    }
 
 	    // print the status of the server response
-        print_status(*result_2);
+        printSuccess(*result_2);
 
 	    // sleep one second between puts
 	    sleep(1);
 	}
 
-	// sleep a total of 5 seconds
-	// sleep 4 more seconds (already slept 1 second from last iteration of loop)
-    sleep(4);
+    sleep(5);// sleep 5 seconds for project requirements
 
-    // client calls get from server 2*NUM_PUTS times
-    for (i = 0; i < 2*NUM_PUTS; i++) {
-    	// set host id in message
+    // client calls 10 times per project requirements
+    for (i = 0; i < 10; i++) {
+    	// host id in message
         get_1_arg = host_id;
-        // set curr time
-    	set_time();
-    	// print get request message
-    	printf("[%s] Client %d sent a GET request.\n", curr_time, host_id);
+        getTime();
+    	
+        fflush(stdout);
+    	printf("Current time: %s | Client #: %d  GET request.\n", currentTime, host_id);
     	fflush(stdout);
 
-    	// call get on server
+    	// server calls get
     	result_1 = get_1(&get_1_arg, clnt);
+
     	if (result_1 == (int *) NULL) {
     		clnt_perror (clnt, "call failed");
     	}
 
-    	// print the status of the server response
-        print_status(*result_1);
-    	// sleep one second between gets
-    	sleep(1);
+        printSuccess(*result_1);
+    	sleep(1); // project requirements
     }
 
 #ifndef	DEBUG
@@ -212,9 +195,7 @@ display_prg_1(char *host)
 }
 
 
-int
-main (int argc, char *argv[])
-{
+int main (int argc, char *argv[]){
 	char *host;
 
 	if (argc < 2) {

@@ -37,58 +37,52 @@ void getTime() {
         currentTime[0] = 0;
         return;
     }
-/*
     // gets time a readable manner
     asctime_r(timeinfo, currentTime);
 	if (currentTime == NULL) {
 		perror("readable time error");
 		currentTime[0] = 0;
 		return;
-	}*/
+	}
 }
 
 int * get_1_svc(int *argp, struct svc_req *rqstp){
-	/* initially sets the result as an error */
+	
 	int *result = (int *)malloc(sizeof(int));
 	if (result == NULL) { //unneccessary check I think but just to be safe
 		perror("malloc error");
 		int x;
 		result = &x;
 	}
-    *result = -1;
+    *result = -1; //initially sets the result as an error 
 	
     getTime();
-	printf("[%s] Server received a GET request from client %d.\n", currentTime, *argp);
-    fflush(stdout);
 
-	//check if there are any messages received from clients other than the one specified
-    int i;
+    fflush(stdout);
+	printf("Current time: %s | SERVER received GET request from CLIENT #: %d\n", currentTime, *argp);
+    fflush(stdout);
     
-    // should be between 0 and 2 if in id list, else cannot see any messages
-    int client_id = -1;
-    int real_client_id = *argp;
-    // get client id
+    // should be between 0 and 2 if in clientList created above
+    int clientID = -1;
+    int actual = *argp;
+    /* 
+   	checks to see where the client is in the server client list
+   	and then translates it into the clientID 
+   	*/
+    int i;
     for (i = 0; i < 3; i++) {
-    	// check to see where the client is in the server client list
-    	if (clientList[i] == real_client_id){
-    		// found the client, now set it to keep track
-    		client_id = i;
-    		// translated client id, now leave loop
-    		break;
+    	if (clientList[i] == actual){
+    		clientID = i;
+    		break; 
     	}
     }
 
-    // see if the client has any messages to "get"
+    /* loop to see if client has to GET any messages */
     for (i = 0; i < 15; i++){
-    	// limit to only 3 clients
-    	if (client_id >= 0 && client_id <= 2 && i > currentClientIndex[client_id]){
-            // check if the client id is in the list of ids and not equal to this id
-			if (messageIDs[i] != real_client_id && messageIDs[i] >= 0){
-				// set success status
-				*result = 0;
-				// update the current client message index
-				currentClientIndex[client_id] = i;
-				// found a message, now return
+    	if (clientID >= 0 && clientID <= 2 && i > currentClientIndex[clientID]){
+			if (messageIDs[i] != actual && messageIDs[i] >= 0){
+				*result = 0; // GREAT SUCCESS!
+				currentClientIndex[clientID] = i;
 				return result;
 			}
     	}

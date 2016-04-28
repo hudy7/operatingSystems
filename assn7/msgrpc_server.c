@@ -75,7 +75,7 @@ int *get_1_svc(int *argp, struct svc_req *rqstp){
 
 	for(i = 0; i < 15; i++){
 		if(client_id >= 0 && client_id <=2){
-			*result = 0; // status success!
+			result = 0; // status success!
 
 			return &result;
 		}

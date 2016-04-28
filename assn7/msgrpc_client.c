@@ -144,9 +144,9 @@ for(i = 0; i < 5; i++){
 	int status = *result_2;
 	fflush(stdout);
 	if (status == 0) {
-        printf ("%s Success response from the server.\n", currentTime);
+        printf ("%s Success from the server.\n", currentTime);
     } else {
-        printf("%s Failure response from the server.\n", currentTime);
+        printf("%s Failure from the server.\n", currentTime);
     }
     fflush(stdout);
 

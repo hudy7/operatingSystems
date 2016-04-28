@@ -93,7 +93,7 @@ int *put_1_svc(struct data *argp, struct svc_req *rqstp){
 
     int client_id = argp->id; // initially out of bounds aka error
 
-    if(strcopy(messages[currentMessage].msg, argp->msg) == NULL){
+    if(strcpy(messages[currentMessage].msg, argp->msg) == NULL){
     	perror("Message on to server error");
     }
     else{ // success

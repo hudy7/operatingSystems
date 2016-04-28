@@ -9,7 +9,7 @@
 
 
 struct data msgs[15]; // allocate space to put msgs on client 
-char currTime[30]; //current time string stored as char array
+char currentTime[30]; //current time string stored as char array
 // attempting to store in an array of msgs since nothing is working will be set as occurs
 int messages[15] = {-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2};
 //^^ this allows us to make sure we are not getting messages from the same client
@@ -28,15 +28,15 @@ void getTime(){
 	struct tm *timeinfo;
 
 	// avoid null reference
-	if (currTime == NULL) {
-		currTime[0] = 0;
+	if (currentTime == NULL) {
+		currentTime[0] = 0;
 	}
 
 	// get the current time
 	time (&rawtime);
 	if (rawtime == ((time_t)-1)) {
 		perror("rawtime error");
-		currTime[0] = 0;
+		currentTime[0] = 0;
 		return;
 	}
 
@@ -55,7 +55,7 @@ int *get_1_svc(int *argp, struct svc_req *rqstp){
 	getTime();
 	
 	fflush(stdout);
-	printf("%s Server received GET request from client %d.\n", currTime, *argp);
+	printf("%s Server received GET request from client %d.\n", currentTime, *argp);
     fflush(stdout);
 
     int client_id = *argp;
@@ -75,7 +75,7 @@ int *put_1_svc(struct data *argp, struct svc_req *rqstp){
 	static int result = -1;
 	getTime();
 	fflush(stdout);
-	printf("%s Server received PUT request from client %d.\n", currTime, argp->id);
+	printf("%s Server received PUT request from client %d.\n", currentTime, argp->id);
     fflush(stdout);
 
     int client_id = argp->id; // initially out of bounds aka error

@@ -17,15 +17,15 @@ void getTime(){
 	struct tm *timeinfo;
 
 	// avoid null reference
-	if (currTime == NULL) {
-		currTime[0] = 0;
+	if (currentTime == NULL) {
+		currentTime[0] = 0;
 	}
 
 	// get the current time
 	time (&rawtime);
 	if (rawtime == ((time_t)-1)) {
 		perror("rawtime error");
-		currTime[0] = 0;
+		currentTime[0] = 0;
 		return;
 	}
 
@@ -57,7 +57,7 @@ void display_prg_1(char *host){
 
 int i;
 for(i = 0; i < 5; i++){
-	put_1_arg.id = 2 //set the host id
+	put_1_arg.id = 2; //set the host id
 	char stringToPass = "Here is a message";
 	if(strcopy(put_1_arg.msg, stringToPass) == NULL){
 		perror("strcopy err");
@@ -66,7 +66,7 @@ for(i = 0; i < 5; i++){
 	getTime();
 
     fflush(stdout);
-    printf ("%s Client %d PUT request.\n", currTime, host_id);
+    printf ("%s Client %d PUT request.\n", currentTime, host_id);
 	fflush(stdout);
 
 	result_2 = put_1(&put_1_arg, clnt);
@@ -79,9 +79,9 @@ for(i = 0; i < 5; i++){
 	int status = *result_2;
 	fflush(stdout);
 	if (status == 0) {
-        printf ("%s Success response from the server.\n", currTime);
+        printf ("%s Success response from the server.\n", currentTime);
     } else {
-        printf("%s Failure response from the server.\n", currTime);
+        printf("%s Failure response from the server.\n", currentTime);
     }
     fflush(stdout);
 
@@ -101,7 +101,7 @@ for(j = 0; j < 10; j++){
 	get_1_arg = host_id; // set host id
 	getTime();
 	fflush(stdout);
-	printf("%s Client %d has sent a GET request.\n", currTime, host_id);
+	printf("%s Client %d has sent a GET request.\n", currentTime, host_id);
 	fflush(stdout);
 
 	result_1 = get_1(&get_1_arg, clnt);
@@ -112,9 +112,9 @@ for(j = 0; j < 10; j++){
 	int status2 = *result_2;
 	fflush(stdout);
 	if (status2 == 0) {
-        printf ("%s Success response from the server.\n", currTime);
+        printf ("%s Success response from the server.\n", currentTime);
     } else {
-        printf("%s Failure response from the server.\n", currTime);
+        printf("%s Failure response from the server.\n", currentTime);
     }
     fflush(stdout);
 

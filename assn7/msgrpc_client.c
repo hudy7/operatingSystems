@@ -120,12 +120,13 @@ void display_prg_1(char *host){
 
 int i;
 for(i = 0; i < 5; i++){
-	put_1_arg.id = 2; //set the host id
+	put_1_arg.id = host_id; //set the host id
+	
 	char *random_str = get_random_string();
 	if(strcopy(put_1_arg.msg, random_str) == NULL){
 		perror("strcopy err");
 	}
-
+	free(random_str);
 	getTime();
 
     fflush(stdout);

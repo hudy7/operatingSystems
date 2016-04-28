@@ -122,8 +122,9 @@ int i;
 for(i = 0; i < 5; i++){
 	put_1_arg.id = host_id; //set the host id
 	
-	char *random_str = get_random_string();
-	if(strcopy(put_1_arg.msg, random_str) == NULL){
+	char *random_str = "string hereeee";
+
+	if(strcpy(put_1_arg.msg, random_str) == NULL){
 		perror("strcopy err");
 	}
 	free(random_str);

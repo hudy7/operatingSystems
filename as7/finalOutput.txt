@@ -1,0 +1,60 @@
+Current time: Thu Apr 28 18:32:21 2016
+ | CLIENT #: 37 PUT request
+Current time: Thu Apr 28 18:32:21 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:22 2016
+ | CLIENT #: 37 PUT request
+Current time: Thu Apr 28 18:32:22 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:23 2016
+ | CLIENT #: 37 PUT request
+Current time: Thu Apr 28 18:32:23 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:24 2016
+ | CLIENT #: 37 PUT request
+Current time: Thu Apr 28 18:32:24 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:25 2016
+ | CLIENT #: 37 PUT request
+Current time: Thu Apr 28 18:32:25 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:31 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:31 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:32 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:32 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:33 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:33 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:34 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:34 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:35 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:35 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:36 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:36 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:37 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:37 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:38 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:38 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:39 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:39 2016
+ | SUCCESS from SERVER
+Current time: Thu Apr 28 18:32:40 2016
+ | Client #: 37  GET request.
+Current time: Thu Apr 28 18:32:40 2016
+ | SUCCESS from SERVER

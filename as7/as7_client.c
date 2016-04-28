@@ -59,7 +59,7 @@ void printSuccess(int s) {
 }
 
 // uses the fortune program to generate a random string, returns a pointer to that string
-/*char *get_random_string(){
+char *get_random_string(){
     FILE *fp;
 
     // variables for creating random string
@@ -116,7 +116,7 @@ void printSuccess(int s) {
 	}
     return random_str;
 }
-*/
+
 
 void display_prg_1(char *host){
 	CLIENT *clnt;
@@ -139,7 +139,7 @@ void display_prg_1(char *host){
 	//put messages 5 times per project requirements
 	for (i = 0; i < 5; i++) {
         put_1_arg.id = host_id;
-        char *mess = "message";
+        char *mess = get_random_string();
         if (strcpy(put_1_arg.message, mess) == NULL){
         	perror("strcopy error");
         }

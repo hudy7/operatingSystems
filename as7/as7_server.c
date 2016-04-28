@@ -90,59 +90,57 @@ int * get_1_svc(int *argp, struct svc_req *rqstp){
 	return result;
 }
 
-int *
-put_1_svc(struct data *argp, struct svc_req *rqstp)
-{
-	// initialize result in memory to error status
+int * put_1_svc(struct data *argp, struct svc_req *rqstp){
+
 	int *result = (int *)malloc(sizeof(int));
-	if (result == NULL) {
-		perror("result malloc failed...");
-		int n;
-		result = &n;
+	if (result == NULL) { //unneccessary check I think but just to be safe
+		perror("malloc error");
+		int x;
+		result = &x;
 	}
-	*result = -1;
-	// set the most updated time for the global time array
+    *result = -1; //initially sets the result as an error
+
 	getTime();
-	printf("[%s] Server received a PUT request from client %d.\n", currentTime, argp->id);
+	fflush(stdout);
+	printf("Current time: %s | SERVER received GET request from CLIENT #: %d.\n", currentTime, argp->id);
     fflush(stdout);
 
-    // only put new message if the message limit has not been met
-	if (currentMessage < 15){
-	    // should be between 0 and 2, else client not in list
-	    int client_id = -1;
+    
+	if (currentMessage < 15){ // only 15 messages per project requirements
+	    
+	    int clientID = -1; // init error
+	    
+
+	    /*
+	    goes through list and finds the correct client
+	    */
 	    int i;
-	    // get client id
 	    for (i = 0; i < 3; i++) {
-	    	// check to see where the client is in the server client list
 	    	if (clientList[i] == argp->id){
-	    		// found the client, now set it to keep track
-	    		client_id = i;
-	    		// translated client id, now leave loop
+	    		clientID = i;
 	    		break;
 	    	}
 	    }
 
-		// store client msg
+		// store the message
 	    if (strcpy(clientMessages[currentMessage].message, argp->message) == NULL){
-	    	perror("failure putting message on server...");
-	    } else {
-		    // store client id
+	    	perror("strcpy error");
+	    } 
+	    else {
+		    // store the clientUD
 			clientMessages[currentMessage].id = argp->id;
-
-			// store id in ordered id list
+			// store in messageIDs array
 			messageIDs[currentMessage] = argp->id;
 
-			// add user to client list only if necessary
-			if (client_id == -1){
-				// add this client to the clients list
+			/*
+			add client to list if nec
+			*/
+			if (clientID == -1){
 				clientList[currentClient] = argp->id;
-				// increment curr client counter
 				currentClient += 1;
 			}
-			// increment current client msg index
 			currentMessage += 1;
-			// set success result
-			*result = 0;
+			*result = 0; // great success!
 	    }
 	}
 	return result;

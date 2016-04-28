@@ -50,7 +50,7 @@ void printSuccess(int s) {
 	getTime();
 
     fflush(stdout);
-    if (status == 0) {
+    if (s == 0) {
         printf ("Current time: %s | SUCCESS from SERVER\n", currentTime);
     } else {
         printf("Current time: %s | SUCCESS from SERVER\n", currentTime);

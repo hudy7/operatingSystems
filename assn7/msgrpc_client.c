@@ -33,7 +33,7 @@ void getTime(){
 	timeinfo = localtime (&rawtime);
     if (timeinfo == NULL) {
         perror("local time error");
-        curr_time[0] = 0;
+        currentTime[0] = 0;
         return;
     }
 }
